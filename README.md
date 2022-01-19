@@ -1,2 +1,2 @@
-# project_cstp1206
+# CSTP 1206 project
 CSTP1206 class project
