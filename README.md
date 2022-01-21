@@ -1,13 +1,14 @@
 Project: Scrapbook App
 
 Team Members:
-Steven Uhm
-Jeimseu Kim (James)
-Jing Jin (Jessica)
-Tze-Ching Sun (Gina)
+Steven Uhm,
+Jeimseu Kim (James),
+Jing Jin (Jessica),
+Tze-Ching Sun (Gina),
 Yoonhee Chang (Yoon)
 
 Desktop accessible, Mobile friendly
+
 Project Idea:
 
 1. Document Google Doc Link:
