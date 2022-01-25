@@ -1,0 +1,4 @@
+This is CSTPtest file
+https://www.mockaroo.com/
+https://www.javascripttutorial.net/es-next/javascript-object-spread/
+https://vegibit.com/new-array-functions-in-es6/
