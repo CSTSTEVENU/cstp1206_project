@@ -1,4 +1,4 @@
-Project: Scrapbook App
+Project: Scrapbook App 
 
 Team Members:
 Steven Uhm,
