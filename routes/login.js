@@ -27,7 +27,7 @@ const people = await prisma.user.findFirst({where: {email: name}} );
 //// const people = getUser(name);
 console.info(people);
   if(people.password === pwd){
-   res.render('index.jade')
+   res.render('index.jade', {name: name, pwd: pwd})
   }
   else{
     console.info("wrong");
