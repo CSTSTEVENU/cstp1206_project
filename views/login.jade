@@ -1,13 +1,17 @@
 extend layout 
 
 block content
-    form(method="POST", action="/user")
-    input(type="hidden",name="_method", value="PUT")
-    p Name 
-    input(type="text", name="name")
-    p Password 
-    input(type="text", name="password")
-    p 
-    input(type="submit")
+    h1 Login
+    if message
+        p #{message}
+    
+    form(action='/login', method='POST')
+        input(type="hidden",name="_method", value="PUT")
+        p Email: 
+        input(type="text",id='email', name="email")
+        p Password 
+        input(type="text",id='password' name="password")
+        p 
+        input(type="submit", value="Login")
     p 
     a(href='/register', title='register') Register
