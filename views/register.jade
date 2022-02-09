@@ -1,5 +1,12 @@
 extend layout 
 
 block content
-    h1 Register
- 
+    form(action='/register', method='post')
+        p Create An Account
+        p User Name:
+        input(type='text',name='username')
+        p Password:
+        input(type='text',name='pwd')
+        br
+        br
+        input(type='submit',value='register')

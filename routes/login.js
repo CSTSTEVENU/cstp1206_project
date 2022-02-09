@@ -1,8 +1,8 @@
- var  express = require('express');
- var router = express.Router();
+ const  express = require('express');
+ const router = express.Router();
 
-// var  bodyParser = require('body-parser')
-// var  app=express();
+// const  bodyParser = require('body-parser')
+// const  app=express();
 const { PrismaClient } = require( '@prisma/client');
 const { render } = require('../app');
 const prisma = new PrismaClient()
@@ -18,16 +18,18 @@ const prisma = new PrismaClient()
 
 //to login
 router.post('/',async function (req,res) {
-      var  name=req.body.email.trim();
-      var pwd=req.body.password.trim();
-console.log('username:'+name+'password:'+pwd);
+      const  email=req.body.email.trim();
+      const pwd=req.body.password.trim();
+console.log('username:'+email+'password:'+pwd);
 
-// var selectSQL = "select * from user where username = '"+name+"'";
-const people = await prisma.user.findFirst({where: {email: name}} );
-//// const people = getUser(name);
-console.info(people);
+// const selectSQL = "select * from user where username = '"+name+"'";
+const people = await prisma.user.findFirst({where: {email: email}} );
+// const people = getUser(name);
+console.log(people);
   if(people.password === pwd){
-   res.render('index.jade', {name: name, pwd: pwd})
+    res.render('index.jade')
+    //res.redirect("/users")
+   //res.render('users.jade')// after , we can get the data in index page shows 
   }
   else{
     console.info("wrong");
@@ -54,9 +56,9 @@ console.info(people);
 
 // // create an account 
 // app.post('/register',function (req,res) {
-//     var  name=req.body.username.trim();
-//     var  password=req.body.password.trim();
-//     var  user={name:name,password:password};
+//     const  name=req.body.username.trim();
+//     const  password=req.body.password.trim();
+//     const  user={name:name,password:password};
 //     connection.query('insert into user set ?',user,function (err,rs) {
 //         if (err) throw  err;
 //         console.log('ok');
@@ -64,7 +66,7 @@ console.info(people);
 //     })
 // })
 
-// var  server=app.listen(3000,function () {
+// const  server=app.listen(3000,function () {
 //     console.log("login server start......");
 // })
 

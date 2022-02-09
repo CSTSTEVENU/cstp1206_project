@@ -7,14 +7,14 @@ async function main() {
     await prisma.user.create(
         {
             data:{
-                name:'Jessica',
-                age:22,
-                password: "12345",
-                email:"jingjin496@gmail.com"
+              name:"Gina",
+              age:31,
+              password: "12345",
+              email:"ginasun28@gmail.com"
             }
-
-        }
-    );
+                
+            
+  });
     console.log('Created a person & hedgehogs');
     console.log('let\'s get the data');
 
