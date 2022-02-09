@@ -13,6 +13,8 @@ router.get('/login', function(req, res, next) {
 router.get('/register', function(req, res, next) {
   res.render('register', { title: 'Express' });
 });
-
+router.get('/contactus', function(req, res, next) {
+  res.render('contactus.jade');
+});
 
 module.exports = router;
