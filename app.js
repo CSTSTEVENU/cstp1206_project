@@ -1,17 +1,16 @@
-var createError = require('http-errors');
-var express = require('express');
-var http = require('http');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-// var login = require('login_page');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var loginRouter = require('./routes/login');
-var registerRouter = require('./routes/register');
+// import the router
+const indexRouter = require('./routes/index');
+// const userRouter = require('./routes/user');
+const usersRouter = require('./routes/users');
+// const apiRouter = require('./routes/api');
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,16 +21,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-// app.get('/login',function(req,res){
-//     res.render('login_page');
-// })
 
-
+// use the router
 app.use('/', indexRouter);
+// app.use('/user', userRouter);
 app.use('/users', usersRouter);
-app.use('/login', loginRouter);
-app.use('/register', registerRouter);
-
+// app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
