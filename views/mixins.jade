@@ -1,0 +1,12 @@
+mixin user(val)
+  h2 THIS IS FROM A MIXIN
+  if val.firstName == 'Neron'
+    h2 #{ val.firstName }
+  else
+    h3 #{ val.lastName }
+
+  p #{ val.firstName} #{ val.lastName}
+  p email: #{ val.email }
+  p city: #{ val.city },
+  p countryCode: #{ val.countryCode }
+  p username: #{ val.username }
