@@ -1,0 +1,25 @@
+extends layout
+
+block content
+      .contact-section
+        .contact-info
+          div
+            i.fas.fa-map-marker
+            | Address, City, Country
+            div
+            i.fas.fa-mail-bulk
+            | contact@email.com     
+            div
+            i.fas.fa-phone-square-alt
+            | +0 000-000-0000    
+            div
+            i.fas.fa-clock
+            | Mon - Fri 8:00 AM to 5:00 PM  
+      .contact-form
+        h2 Contact Us
+        form.contact(action='', medthod='post')
+            input.text-box(type='text', name='name', placeholder='Your Name', required='')       
+            input.text-box(type='email', name='email', placeholder='Your Email', required='')    
+            textarea(name='message', rows='5', placeholder='Your Messsge', required='')    
+            input.send-btn(type='submit', name='submit', value='Send')
+

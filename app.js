@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 if(process.env.NODE_ENV !== 'production'){
   require('dotenv').config()
 }
@@ -26,6 +27,21 @@ initializePassport(
   id => users.find(user => user.id === id)
 )
 const users = []
+=======
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+
+// import the router
+const indexRouter = require('./routes/index');
+// const userRouter = require('./routes/user');
+const usersRouter = require('./routes/users');
+// const apiRouter = require('./routes/api');
+
+const app = express();
+>>>>>>> f86f9c9241ed9d03e1aaf353ee4b8fd1b716314d
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -46,6 +62,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+<<<<<<< HEAD
 app.use(methodOverride('_method'))
 
 app.get('/', checkAuthenticated, (req, res) => {
@@ -102,12 +119,14 @@ function checkNotAuthenticated(req, res,next){
   }
   next()
 }
+=======
+>>>>>>> f86f9c9241ed9d03e1aaf353ee4b8fd1b716314d
 
+// use the router
 app.use('/', indexRouter);
+// app.use('/user', userRouter);
 app.use('/users', usersRouter);
-app.use('/login', loginRouter);
-app.use('/register', registerRouter);
-
+// app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -125,5 +144,9 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+<<<<<<< HEAD
 
 module.exports = app;
+=======
+module.exports = app;
+>>>>>>> f86f9c9241ed9d03e1aaf353ee4b8fd1b716314d
