@@ -1,82 +1,72 @@
-var  express = require('express');
-var router = express.Router();
+ const  express = require('express');
+ const router = express.Router();
 
-var  bodyParser = require('body-parser')
-var  app=express();
-var mysql=require('mysql');
-app.set('view engine', 'jade'); 
-app.set('views', __dirname);
-app.use(bodyParser.urlencoded({extended: false}))
-app.use(bodyParser.json())
+// const  bodyParser = require('body-parser')
+// const  app=express();
+const { PrismaClient } = require( '@prisma/client');
+const { render } = require('../app');
+const prisma = new PrismaClient()
+// app.set('view engine', 'jade'); 
+// app.set('views', __dirname);
+// app.use(bodyParser.urlencoded({extended: false}))
+// app.use(bodyParser.json())
 
-
-//mysql
-// var connection = mysql.createConnection({
-//     host: "localhost",
-//     user: "root",
-//     password: "12345",
-//     database : 'movierecommend',
-//     port:'3306',
-// });
-// connection.connect();
-
-// //login_page
-// app.get('/login',function (req,res) {
-//     res.render('login');
-// })
-
-var mysql = require('mysql');
-var conn = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "12345",
-    insecureAuth : true
-});
-conn.connect((err) =>{
-    if(err){ 
-        throw err;
-    }
-    console.log("connected!");
-});
+// function getUser(email){
+//   const people = await prisma.user.findFirst({where: {email: email}} );
+//   return people;
+// }
 
 //to login
-app.post('/login',function (req,res) {
-      var  name=req.body.username.trim();
-      var pwd=req.body.pwd.trim();
-console.log('username:'+name+'password:'+pwd);
+router.post('/',async function (req,res) {
+      const  email=req.body.email.trim();
+      const pwd=req.body.password.trim();
+console.log('username:'+email+'password:'+pwd);
 
-var selectSQL = "select * from user where username = '"+name+"' and password = '"+pwd+"'";
-connection.query(selectSQL,function (err,rs) {
-    if (err) throw  err;
-                if (rs.length==0){
-        res.render('error',{title:'WARNING',message:'Sorry, username: '+name+ ' not exit.'});
-        return;
-                        }
-    console.log(rs);
-    console.log('ok');
-    res.render('ok',{title:'Welcome User',message:name});
-})
-})
-
-//create account page
-app.get('/register',function (req,res) {
-    res.render('register',{title:'create account'});
-  })
-
-
-// create an account 
-app.post('/register',function (req,res) {
-    var  name=req.body.username.trim();
-    var  pwd=req.body.pwd.trim();
-    var  user={username:name,password:pwd};
-    connection.query('insert into user set ?',user,function (err,rs) {
-        if (err) throw  err;
-        console.log('ok');
-       res.render('ok',{title:'Welcome User',message:name});
-    })
+// const selectSQL = "select * from user where username = '"+name+"'";
+const people = await prisma.user.findFirst({where: {email: email}} );
+// const people = getUser(name);
+console.log(people);
+  if(people.password === pwd){
+    res.render('index.jade')
+    //res.redirect("/users")
+   //res.render('users.jade')// after , we can get the data in index page shows 
+  }
+  else{
+    console.info("wrong");
+  }
 })
 
-// var  server=app.listen(3000,function () {
+// connection.query(selectSQL,function (err,rs) {
+//     if (err) throw  err;
+//                 if (rs.length==0){
+//         res.render('error',{title:'WARNING',message:'Sorry, username: '+name+ ' not exit.'});
+//         return;
+//                         }
+//     console.log(rs);
+//     console.log('ok');
+//     res.render('ok',{title:'Welcome User',message:name});
+// })
+// })
+
+// //create account page
+// app.get('/register',function (req,res) {
+//     res.render('register',{title:'create account'});
+//   })
+
+
+// // create an account 
+// app.post('/register',function (req,res) {
+//     const  name=req.body.username.trim();
+//     const  password=req.body.password.trim();
+//     const  user={name:name,password:password};
+//     connection.query('insert into user set ?',user,function (err,rs) {
+//         if (err) throw  err;
+//         console.log('ok');
+//        res.render('ok',{title:'Welcome User',message:name});
+//     })
+// })
+
+// const  server=app.listen(3000,function () {
 //     console.log("login server start......");
 // })
 

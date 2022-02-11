@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url = env("DATABASE_URL")
+}
+
+model user {
+  id       Int @id @default(autoincrement())
+  name     String
+  age      Int
+  email    String
+  password String
+}
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+//   shadowDatabaseUrl =env("SHADOW_DATABASE_URL")
+// }
+
+// model user{
+//   id       Int @id @default(autoincrement())
+//   name     String
+//   age      Int
+//   email    String
+//   password String
+//   hedgehogs Hedgehog[]
+// }
+
+
+
+// model Hedgehog{
+//   id      Int @id @default(autoincrement())
+//   name    String
+//   owner   user? @relation(fields: [ownerID], references: [id])
+//   ownerID Int?
+// }
