@@ -5,8 +5,13 @@ block content
         p Create An Account
         p User Name:
         input(type='text',name='username')
+        p Email: 
+        input(type='text',name='email')
         p Password:
         input(type='text',name='pwd')
-        br
+        p Comfirm Password:
+        input(type='text',name='cmpwd')
         br
         input(type='submit',value='register')
+    if message
+        p #{message}
