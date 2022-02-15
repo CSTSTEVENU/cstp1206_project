@@ -6,6 +6,7 @@
 const { PrismaClient } = require( '@prisma/client');
 const { render } = require('../app');
 const prisma = new PrismaClient()
+const bcrypt = require('bcrypt')
 // app.set('view engine', 'jade'); 
 // app.set('views', __dirname);
 // app.use(bodyParser.urlencoded({extended: false}))
@@ -26,15 +27,24 @@ console.log('username:'+email+'password:'+pwd);
 const people = await prisma.user.findFirst({where: {email: email}} );
 // const people = getUser(name);
 console.log(people);
-  if(people.password === pwd){
-    res.render('index.jade')
-    //res.redirect("/users")
-   //res.render('users.jade')// after , we can get the data in index page shows 
-  }
-  else{
+bcrypt.compare(pwd, people.password, (err) =>{
+  if(err){
     console.info("wrong");
+    return;
   }
-})
+  res.render('index.jade');
+});
+  // if(ppd === people.password){
+  //   res.render('index.jade')
+  //   //res.redirect("/users")
+  //  //res.render('users.jade')// after , we can get the data in index page shows 
+  // }
+  // else{
+  //   console.info("wrong");
+  //   console.info(ppd);
+
+  // }
+});
 
 // connection.query(selectSQL,function (err,rs) {
 //     if (err) throw  err;
