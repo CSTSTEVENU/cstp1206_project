@@ -11,16 +11,12 @@ router.get('/', function(req, res) {
 
 router.post('/', async (req, res) => {
   try{
-    if (req.body.pwd !== req.body.cmpwd){
-      res.render("register.jade", {message:"The passwords are not match."});
-      return;
-    }
 
     const user = await prisma.user.findFirst({
       where: {
         OR:[
           {name: req.body.username},
-          {password: req.body.pwd}
+          {email: req.body.email}
         ]
       }
     });
@@ -35,6 +31,11 @@ router.post('/', async (req, res) => {
       name: req.body.username,
       email: req.body.email,
       password: hashedPassword
+    }});
+    
+    await prisma.folder.create({data:{
+      folderName: "Your Design",
+      user_id: newUser.id
     }});
     res.redirect('/login');
   }catch(error)

@@ -7,15 +7,24 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url = env("DATABASE_URL")
+  url      = env("DATABASE_URL")
 }
 
 model user {
-  id       Int @id @default(autoincrement())
+  id       Int      @id @default(autoincrement())
   name     String
   email    String
   password String
+  folder   folder[]
 }
+
+model folder {
+  id          Int    @id @default(autoincrement())
+  folderName String @map("folder_name")
+  owner       user?  @relation(fields: [user_id], references: [id])
+  user_id     Int?
+}
+
 // datasource db {
 //   provider = "postgresql"
 //   url      = env("DATABASE_URL")
@@ -30,8 +39,6 @@ model user {
 //   password String
 //   hedgehogs Hedgehog[]
 // }
-
-
 
 // model Hedgehog{
 //   id      Int @id @default(autoincrement())

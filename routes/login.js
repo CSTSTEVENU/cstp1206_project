@@ -1,12 +1,12 @@
- const  express = require('express');
- const router = express.Router();
+const  express = require('express');
+const router = express.Router();
 
 // const  bodyParser = require('body-parser')
 // const  app=express();
 const { PrismaClient } = require( '@prisma/client');
 const { render } = require('../app');
 const prisma = new PrismaClient()
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt')// 
 // app.set('view engine', 'jade'); 
 // app.set('views', __dirname);
 // app.use(bodyParser.urlencoded({extended: false}))
@@ -17,6 +17,9 @@ const bcrypt = require('bcrypt')
 //   return people;
 // }
 
+router.get('/', function(req,res){
+  res.render("login.jade");
+});
 //to login
 router.post('/',async function (req,res) {
       const  email=req.body.email.trim();
@@ -30,9 +33,12 @@ console.log(people);
 bcrypt.compare(pwd, people.password, (err) =>{
   if(err){
     console.info("wrong");
+    res.render("login.jade", {message:"Password is wrong, please retry."});
     return;
   }
-  res.render('index.jade');
+  req.session.user = people;
+  res.cookie("username", people.name );
+  res.redirect('dashboard');
 });
   // if(ppd === people.password){
   //   res.render('index.jade')
