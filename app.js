@@ -15,6 +15,10 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
+const dashboardRouter = require('./routes/dashboard')
+const editprofileRouter = require('./routes/editprofile')
+const foldermanagerRouter = require('./routes/foldermanager')
+const whiteboardRouter = require('./routes/whiteboard')
 
 const app = express();
 const bcrypt = require('bcrypt')
@@ -49,55 +53,32 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'))
 
 app.get('/', checkAuthenticated, (req, res) => {
-  res.render('index.jade',{name: req.user.name})
-})
-
-app.get('/login',checkNotAuthenticated, (req, res) =>{
-  res.render('login.jade')
-})
-
-// app.post('/login', checkNotAuthenticated,passport.authenticate('local', {
-//   successRedirect: '/',
-//   failureRedirect: '/login',
-//   failureFlash: true
-// }))
-
-// app.get('/register', checkNotAuthenticated, (req, res) =>{
-//   res.render('register.jade')
-// })
-
-// app.post('/register',checkNotAuthenticated, async (req, res) => {
-//   try{
-//     const hashedPassword = await bcrypt.hash(req.body.password, 10)
-//     users.push({
-//       id: Date.now().toString(),
-//       name: req.body.name,
-//       email: req.body.email,
-//       password: hashedPassword
-//     })
-//     res.redirect('/login')
-//   }catch
-//   {
-//     res.redirect('/register')
-//   }
   
-// })
+  res.render('index.jade',{name: req.cookies.username})
+})
 
-app.delete('/logout', (req, res) =>{
-  req.logOut()
-  req.redirect('/login')
+app.get('/logout', (req, res) =>{
+  res.clearCookie('username');
+  res.redirect('/login')
   
 })
+
+function isAuthenticated(req){
+  let userName = req.cookies.username
+  return userName !== undefined
+}
 
 function checkAuthenticated(req, res, next){
-  if(req,isAuthenticated()){
+  if(isAuthenticated(req)){
     return next()
   }
-  res.redirect('/login')
+  else{
+    res.redirect('/login')
+  }
 }
 
 function checkNotAuthenticated(req, res,next){
-  if(req.isAuthenticated()){
+  if(req.isAuthenticated(req)){
     return res.redirect('/')
   }
   next()
@@ -107,7 +88,10 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
-
+app.use('/dashboard', dashboardRouter);
+app.use('/editprofile', editprofileRouter);
+app.use('/foldermanager', foldermanagerRouter);
+app.use('/whiteboard', whiteboardRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

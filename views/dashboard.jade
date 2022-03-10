@@ -1,0 +1,72 @@
+extends layout
+
+block content
+    .sidebar
+      //- .logo-details
+      //-   i.bx.bxl-c-plus-plus
+      //-   span.logo_name ScrapBook
+      ul.nav-links
+        nav
+          .profile-details
+            img(src='images/profile.jpg', alt='')
+            a.admin_name(href='editProfile?id=#{user.id}') #{user.name}
+        br
+        li.yourdesgin 
+          a(href='#')
+           i.bx.bx-folder 
+           span.lins_name Your Desgin 
+
+        li.favororities
+          a(href='#')
+            i.bx.bx-heart
+            span.links_name Favrorites
+        li.add
+          a(href='#')
+            i.bx.bx-add-to-queue
+            span.links_name(type='button' onclick='toggleMe()') Add New Folder
+        li(id="add_folder_link")
+            div#popup
+                input(type='text', id='new_folder_name')
+                button(onclick='saveFolder(document.getElementById("new_folder_name").value);toggleMe();') Save
+   
+        each folder in folders
+            li
+                a(href='#')
+                    i.bx.bx-folder
+                    span.links_name #{folder.folderName}
+        li.log_out
+          a(href="/logout")
+            i.bx.bx-heart
+            span.links_name Logout
+          
+    .rigthtop
+        a(href='#')
+          i.bx.bx-add-to-queue
+          a.i(href='/whiteboard', title='Create New Desgin') Create New Desgin
+      
+     style.
+        #popup {
+            display: none;
+            }
+        form
+
+    
+
+    script.
+        function toggleMe() {
+        var text = document.getElementById('popup')
+        text.style.display = window.getComputedStyle(text, null).display === 'none' ? 'block' : 'none'
+        }
+        //- function logout(){
+
+        //- }
+        
+    //-   let sidebar = document.querySelector(".sidebar");
+    //-   let sidebarBtn = document.querySelector(".sidebarBtn");
+    //-   sidebarBtn.onclick = function() {
+    //-   sidebar.classList.toggle("active");
+    //-   if(sidebar.classList.contains("active")){
+    //-   sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+    //-   }else
+    //-   sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+    //-   }
