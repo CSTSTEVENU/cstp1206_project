@@ -1,0 +1,9 @@
+extends layout
+
+include ./mixins.jade
+
+block content
+  h1= title
+  p Welcome to #{ title }
+  each val in data
+    +user(val)

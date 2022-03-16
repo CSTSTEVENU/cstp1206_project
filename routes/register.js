@@ -1,9 +1,49 @@
 var express = require('express');
 var router = express.Router();
+const bcrypt = require('bcrypt')
+const { PrismaClient } = require( '@prisma/client');
+const prisma = new PrismaClient()
 
-/* GET home page. */
-router.get('/register', function(req, res, next) {
-  res.render('register', { title: 'Express' });
+router.get('/', function(req, res) {
+  console.info("I'm in the Register Router");
+  res.render('register.jade');
 });
+
+router.post('/', async (req, res) => {
+  try{
+
+    const user = await prisma.user.findFirst({
+      where: {
+        OR:[
+          {name: req.body.username},
+          {email: req.body.email}
+        ]
+      }
+    });
+
+    if (user){
+      res.render("register.jade", {message:"User name or email is already registered, please try use different user name/email."});
+      return;
+    }
+
+    const hashedPassword = await bcrypt.hash(req.body.pwd, 10)
+    var newUser = await prisma.user.create({data:{
+      name: req.body.username,
+      email: req.body.email,
+      password: hashedPassword
+    }});
+    
+    await prisma.folder.create({data:{
+      folderName: "Your Design",
+      user_id: newUser.id
+    }});
+    res.redirect('/login');
+  }catch(error)
+  {
+    console.error(error);
+    res.redirect('/register');
+  }
+  console.log(newUser)
+})
 
 module.exports = router;

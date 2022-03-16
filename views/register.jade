@@ -1,12 +1,36 @@
-extend layout 
+extends layout
 
 block content
-    form(action='/register', method='post')
-        p Create An Account
-        p User Name:
-        input(type='text',name='username')
-        p Password:
-        input(type='text',name='pwd')
-        br
-        br
-        input(type='submit',value='register')
+    script.
+        function validateForm(){ return validatePassword();}
+    .login
+        form#register(action='/register', method='post' onsubmit="return validateForm()")
+            h2 Create An Account
+            label
+            b
+                | User Name: 
+                br
+            input(type='text',name='username',id='username',placeholder='username')
+            br
+            br
+            label
+            b
+                | Email:
+            br
+            input(type='text',name='email',id='email',placeholder='email')
+            br
+            br
+            label
+            b
+                | Password:
+            input(type='text',name='pwd', id="pwd",placeholder='pwd')
+            br
+            br
+            label
+            b
+                | Confirmed Password:
+            input(type='text',name='cmpwd', id="cmpwd",placeholder='cmpwd')
+            br
+            br
+            input(type='submit',value='register',name='submit',id='submit')
+            p(id="message")

@@ -1,13 +1,28 @@
-extend layout 
+extends layout
 
 block content
-    form(method="POST", action="/user")
-    input(type="hidden",name="_method", value="PUT")
-    p Name 
-    input(type="text", name="name")
-    p Password 
-    input(type="text", name="password")
-    p 
-    input(type="submit")
-    p 
-    a(href='/register', title='register') Register
+    if message
+        p #{message}
+    br
+    .login
+        h1  Login
+        br
+        br
+        form#login(action='/login', method='POST')
+            input(type="hidden",name="_method", value="PUT")
+            label
+            b
+                | Email: 
+                br
+            input(type="text",id='email', name="email",placeholder='email')
+            br
+            br
+            label
+            b
+                | Password: 
+            input(type="text",id='password', name="password",placeholder='password')
+            br
+            br
+            input(type="submit", id='submit',name='submit' value="Login")
+        p 
+        a(href='/register', title='register') Create An Account
