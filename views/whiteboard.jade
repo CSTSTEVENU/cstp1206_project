@@ -33,12 +33,15 @@ html(lang='en' ng-app='kitchensink')
         #bd-wrapper {
         min-width: 1500px;
         }
-      canvas#c(width='500' height='500' style='border:1px solid #aaa')
+      canvas#c(width='800' height='800' style='border:1px solid #aaa')
       div(style='display: inline-block; margin-left: 10px')
         button#drawing-mode.btn.btn-info Cancel drawing mode
+        button#save Save
         br
         button#clear-canvas.btn.btn-info Clear
         button#undo.btn.btn-info Undo
+        button#copy Copy
+        button#paste Paste
         br
         input(type="file" id="myImage" accept="image/png, image/gif, image/jpeg")
         br

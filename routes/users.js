@@ -25,9 +25,7 @@ router.get('/:username',
               title:username,
               ...user
              }
-             );
-           
-          
+             );         
 }
 );
 
