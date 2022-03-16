@@ -13,8 +13,23 @@ router.post('/create/:folder_name', async function(req, res, next) {
   res.json(newFolder);
 });
 
+router.get('/get/:folder_id', async function (req, res, next) {
+  var folderId = parseInt(req.params["folder_id"].trim());
+  if (isNaN(folderId)) {
+    var images = {};
+  }
+  else {
+    var images = await prisma.image.findMany({
+      where: {
+        folder_id: {
+          equals: folderId
+        }
+      }
+    });
+    
+  }
+  res.render("folder", { images: images });
 
-
-
+});
 
 module.exports = router;

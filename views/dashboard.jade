@@ -2,9 +2,6 @@ extends layout
 
 block content
     .sidebar
-      //- .logo-details
-      //-   i.bx.bxl-c-plus-plus
-      //-   span.logo_name ScrapBook
       ul.nav-links
         nav
           .profile-details
@@ -31,7 +28,7 @@ block content
    
         each folder in folders
             li
-                a(href='#')
+                a(href='/foldermanager/get/#{folder.id}')
                     i.bx.bx-folder
                     span.links_name #{folder.folderName}
         li.log_out
@@ -57,16 +54,3 @@ block content
         var text = document.getElementById('popup')
         text.style.display = window.getComputedStyle(text, null).display === 'none' ? 'block' : 'none'
         }
-        //- function logout(){
-
-        //- }
-        
-    //-   let sidebar = document.querySelector(".sidebar");
-    //-   let sidebarBtn = document.querySelector(".sidebarBtn");
-    //-   sidebarBtn.onclick = function() {
-    //-   sidebar.classList.toggle("active");
-    //-   if(sidebar.classList.contains("active")){
-    //-   sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
-    //-   }else
-    //-   sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
-    //-   }

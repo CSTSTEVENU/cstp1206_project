@@ -6,8 +6,9 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider          = "mysql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model user {
@@ -19,30 +20,18 @@ model user {
 }
 
 model folder {
-  id          Int    @id @default(autoincrement())
-  folderName String @map("folder_name")
-  owner       user?  @relation(fields: [user_id], references: [id])
-  user_id     Int?
+  id         Int     @id @default(autoincrement())
+  folderName String  @map("folder_name")
+  owner      user?   @relation(fields: [user_id], references: [id])
+  user_id    Int?
+  images     image[]
 }
 
-// datasource db {
-//   provider = "postgresql"
-//   url      = env("DATABASE_URL")
-//   shadowDatabaseUrl =env("SHADOW_DATABASE_URL")
-// }
+model image {
+  id        Int     @id @default(autoincrement())
+  data      String  @map("image_data")
+  folder    folder? @relation(fields: [folder_id], references: [id])
+  folder_id Int?
 
-// model user{
-//   id       Int @id @default(autoincrement())
-//   name     String
-//   age      Int
-//   email    String
-//   password String
-//   hedgehogs Hedgehog[]
-// }
-
-// model Hedgehog{
-//   id      Int @id @default(autoincrement())
-//   name    String
-//   owner   user? @relation(fields: [ownerID], references: [id])
-//   ownerID Int?
-// }
+  @@map("images")
+}
