@@ -8,6 +8,15 @@ router.get('/', function(req, res, next) {
     res.render('whiteboard', { title: 'Whiteboard' });
   });
   
-  
+
+  router.post('/', async function(req, res, next){
+    
+    await prisma.image.create({data: {
+        data : req.body.data,
+        folder_id: 1
+    }});
+    // console.info(req.body.data);
+
+  });
   module.exports = router;
   

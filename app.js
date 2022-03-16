@@ -15,10 +15,11 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
-const dashboardRouter = require('./routes/dashboard');
-const editprofileRouter = require('./routes/editprofile');
-const foldermanagerRouter = require('./routes/foldermanager');
-const whiteboardRouter = require('./routes/whiteboard');
+const dashboardRouter = require('./routes/dashboard')
+const editprofileRouter = require('./routes/editprofile')
+const foldermanagerRouter = require('./routes/foldermanager')
+const whiteboardRouter = require('./routes/whiteboard')
+const logoutRouter = require('./routes/logout')
 const contactRouter = require('./routes/contact');
 const aboutRouter = require('./routes/about');
 
@@ -59,12 +60,6 @@ app.get('/', checkAuthenticated, (req, res) => {
   res.render('index.jade',{name: req.cookies.username})
 })
 
-app.get('/logout', (req, res) =>{
-  res.clearCookie('username');
-  res.redirect('/login')
-  
-})
-
 function isAuthenticated(req){
   let userName = req.cookies.username
   return userName !== undefined
@@ -94,8 +89,10 @@ app.use('/dashboard', dashboardRouter);
 app.use('/editprofile', editprofileRouter);
 app.use('/foldermanager', foldermanagerRouter);
 app.use('/whiteboard', whiteboardRouter);
+app.use('/logout', logoutRouter);
 app.use('/contact', contactRouter);
 app.use('/about', aboutRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
