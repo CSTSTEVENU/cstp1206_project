@@ -6,6 +6,8 @@ a:hover, a:focus { text-decoration: none; }
 
 h3, h4 { margin-top: 1.5em !important; }
 
+pre { margin-left: 15px !important }
+
 #features { width: 800px; margin: 30px auto 0 auto; text-align: center; }
 #features p { line-height: 1.5; text-align: left; text-indent: 15px }
 #features .primary { text-align: center; text-indent: 0; font-size: 20px; }

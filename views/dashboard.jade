@@ -38,19 +38,47 @@ block content
           
     .rigthtop
         a(href='#')
-          i.bx.bx-add-to-queue
-          a.i(href='/whiteboard', title='Create New Desgin') Create New Desgin
-      
-     style.
-        #popup {
-            display: none;
-            }
-        form
+          i.bx.bx-folder 
+          span.lins_name Your Desgin 
 
+      li.favororities
+        a(href='#')
+          i.bx.bx-heart
+          span.links_name Favrorites
+      li.add
+        a(href='#')
+          i.bx.bx-add-to-queue
+          span.links_name(type='button' onclick='toggleMe()') Add New Folder
+      li(id="add_folder_link")
+          div#popup
+              input(type='text', id='new_folder_name')
+              button(onclick='saveFolder(document.getElementById("new_folder_name").value);toggleMe();') Save
+  
+      each folder in folders
+          li
+              a(href='#')
+                  i.bx.bx-folder
+                  span.links_name #{folder.folderName}
+      li.log_out
+        a(href="/logout")
+          i.bx.bx-logout
+          span.links_name Logout
+        
+  .rigthtop
+      a(href='#')
+        i.bx.bx-add-to-queue
+        a.i(href='/whiteboard', title='Create New Desgin') Create New Desgin
     
+    style.
+      #popup {
+          display: none;
+          }
+      form
+
 
     script.
         function toggleMe() {
         var text = document.getElementById('popup')
         text.style.display = window.getComputedStyle(text, null).display === 'none' ? 'block' : 'none'
         }
+

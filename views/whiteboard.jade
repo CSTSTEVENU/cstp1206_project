@@ -1,8 +1,13 @@
-html(lang='en' ng-app='kitchensink')
-  head
-    meta(charset='utf-8')
-    link(rel='stylesheet' href='stylesheets/master.css')
+extends layout
+
+block content
+
+  script(src='javascript/fabric.min.js')
+  script(src='javascript/fabric_history.js')
+  script(async='' defer='' src='https://buttons.github.io/buttons.js')
+  #bd-wrapper(ng-controller='CanvasControls')
     style.
+
       pre { margin-left: 15px !important }
     script(src='javascript/fabric.min.js')
     script(src='javascript/fabric_history.js')
@@ -43,74 +48,44 @@ html(lang='en' ng-app='kitchensink')
         button#copy Copy
         button#paste Paste
         br
-        input(type="file" id="myImage" accept="image/png, image/gif, image/jpeg")
+        label(for='drawing-color') Line color:
+        input#drawing-color(type='color' value='#005E7A')
         br
-        input#textToAdd(width=10)
-        button#addText Add Text
+        label(for='drawing-shadow-color') Shadow color:
+        input#drawing-shadow-color(type='color' value='#005E7A')
         br
-        span Font-family:
-        select#font-family
-          option(value='Times New Roman') Times New Roman
-          option(value='Arial') Arial
-          option(value='Verdana') Verdana
-          option(value='Impact') Impact
-          option(value='Tahoma') Tahoma
-
+        label(for='drawing-shadow-width') Shadow width:
+        span.info 0
+        input#drawing-shadow-width(type='range' value='0' min='0' max='50')
         br
-        #drawing-mode-options
-          label(for='drawing-mode-selector') Mode:
-          select#drawing-mode-selector
-            option Pencil
-            option Circle
-            option Spray
-            option Pattern
-            option hline
-            option vline
-            option square
-            option diamond
-          br
-          label(for='drawing-line-width') Line width:
-          span.info 30
-          input#drawing-line-width(type='range' value='30' min='0' max='150')
-          br
-          label(for='drawing-color') Line color:
-          input#drawing-color(type='color' value='#005E7A')
-          br
-          label(for='drawing-shadow-color') Shadow color:
-          input#drawing-shadow-color(type='color' value='#005E7A')
-          br
-          label(for='drawing-shadow-width') Shadow width:
-          span.info 0
-          input#drawing-shadow-width(type='range' value='0' min='0' max='50')
-          br
-          label(for='drawing-shadow-offset') Shadow offset:
-          span.info 0
-          input#drawing-shadow-offset(type='range' value='0' min='0' max='50')
-          br
-      br
-      br
-    script.
-      (function(){
-      var mainScriptEl = document.getElementById('main');
-      if (!mainScriptEl) return;
-      var preEl = document.createElement('pre');
-      var codeEl = document.createElement('code');
-      codeEl.innerHTML = mainScriptEl.innerHTML;
-      codeEl.className = 'language-javascript';
-      preEl.appendChild(codeEl);
-      document.getElementById('bd-wrapper').appendChild(preEl);
-      })();
-    script.
-      (function() {
-      window.addEventListener('load', function() {
-      var canvas = this.__canvas || this.canvas,
-      canvases = this.__canvases || this.canvases;
-      canvas && canvas.calcOffset && canvas.calcOffset();
-      if (canvases && canvases.length) {
-      for (var i = 0, len = canvases.length; i < len; i++) {
-      canvases[i].calcOffset();
-      }
-      }
-      });
-      })();
-    script(src='javascript/whiteboard.js')
+        label(for='drawing-shadow-offset') Shadow offset:
+        span.info 0
+        input#drawing-shadow-offset(type='range' value='0' min='0' max='50')
+        br
+    br
+    br
+  script.
+    (function(){
+    var mainScriptEl = document.getElementById('main');
+    if (!mainScriptEl) return;
+    var preEl = document.createElement('pre');
+    var codeEl = document.createElement('code');
+    codeEl.innerHTML = mainScriptEl.innerHTML;
+    codeEl.className = 'language-javascript';
+    preEl.appendChild(codeEl);
+    document.getElementById('bd-wrapper').appendChild(preEl);
+    })();
+  script.
+    (function() {
+    window.addEventListener('load', function() {
+    var canvas = this.__canvas || this.canvas,
+    canvases = this.__canvases || this.canvases;
+    canvas && canvas.calcOffset && canvas.calcOffset();
+    if (canvases && canvases.length) {
+    for (var i = 0, len = canvases.length; i < len; i++) {
+    canvases[i].calcOffset();
+    }
+    }
+    });
+    })();
+  script(src='javascript/whiteboard.js')

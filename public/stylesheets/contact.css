@@ -1,0 +1,107 @@
+/* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fredoka&family=Vollkorn:wght@500&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* background-image: url("background2.png"); */
+    font-family: 'Fredoka', sans-serif;
+    width: 100%;
+}
+
+/* @media screen and (min-width: 768px){
+  .jumbotron {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+  }
+} */
+
+.jumbotron {
+  padding-top: 80px;
+  padding-bottom: 150px;
+  margin-bottom: 40px;
+  color: #ECF0F1;
+  background-image: url("/image/contact_jumbtron_image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;  
+}
+
+.jumbotron h1 {
+  font-weight: 600;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  -webkit-text-stroke: 2px #6E2C00;
+}
+
+.jumbotron p {
+  font-weight: 400;
+  /* color: #D7DBDD; */
+}
+
+.container {
+  /* padding-top: 20px; */
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-top: 75px;
+  margin-bottom: 80px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+  padding-bottom: 20px;
+}
+
+/* .contactinfo {
+    background-color: #FEF9E7;
+    height: 360px;
+    align-items: center;
+} */
+
+
+/* header/navigation */
+.navbar {
+  background-color: #0a2558;
+  color: white;
+  padding: 15px;      
+}
+
+/* sidebar */
+.sidenav {
+  background-color: #f1f1f1; 
+  position: fixed;
+  width: 200px;
+  height: 100%;
+  margin-left: -20px;
+  margin-top:50px
+}
+
+/* content */
+.page {
+  margin-top:50px;
+  margin-left: 250px;
+}
+/* Body margin
+.body_margin{
+    padding-bottom: 100px;
+} */
+
+/* footer */
+footer {      
+  background-color: #0a2558;
+  color: white;
+  padding: 15px;
+  bottom: 0;
+  position: fixed;
+}
+
