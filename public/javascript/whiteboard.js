@@ -3,6 +3,7 @@
     var canvas = this.__canvas = new fabric.Canvas('c', {
       isDrawingMode: true
     });
+    canvas.setBackgroundColor('white');
     fabric.Object.prototype.transparentCorners = false;
   
     var drawingModeEl = $('drawing-mode'),
@@ -179,6 +180,43 @@
       });
     }
 
+    var copy = () => {
+      // clone what are you copying since you
+      // may want copy and paste on different moment.
+      // and you do not want the changes happened
+      // later to reflect on the copy.
+      canvas.getActiveObject().clone(function(cloned) {
+        _clipboard = cloned;
+      });
+    };
+
+    var paste = () =>{
+      // clone again, so you can do multiple copies.
+      _clipboard.clone(function(clonedObj) {
+        canvas.discardActiveObject();
+        clonedObj.set({
+          left: clonedObj.left + 10,
+          top: clonedObj.top + 10,
+          evented: true,
+        });
+        if (clonedObj.type === 'activeSelection') {
+          // active selection needs a reference to the canvas.
+          clonedObj.canvas = canvas;
+          clonedObj.forEachObject(function(obj) {
+            canvas.add(obj);
+          });
+          // this should solve the unselectability
+          clonedObj.setCoords();
+        } else {
+          canvas.add(clonedObj);
+        }
+        _clipboard.top += 10;
+        _clipboard.left += 10;
+        canvas.setActiveObject(clonedObj);
+        canvas.requestRenderAll();
+      });
+    };
+
     document.getElementById("undo").onclick = ()=>{
       canvas.undo();
       
@@ -188,6 +226,10 @@
       var text = new fabric.Text(document.getElementById("textToAdd").value, { left: 100, top: 100 });
       canvas.add(text);
     }
+
+
+    document.getElementById("copy").onclick = copy;
+    document.getElementById("paste").onclick = paste;
 
     // support change font
     document.getElementById('font-family').onchange = function() {
@@ -216,6 +258,26 @@
       }
       reader.readAsDataURL(e.target.files[0]);
     });
+
+    var save = () =>{
+      let imageData = canvas.toDataURL({
+        format: 'jpeg',
+        quality: 0.8
+      });
+
+      let httpRequest = new XMLHttpRequest();
+      httpRequest.open("POST", "/whiteboard");
+      httpRequest.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200){
+          console.info("success");
+        }
+      };
+
+      httpRequest.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+      httpRequest.send(JSON.stringify({imageName: "noname", data: imageData}));
+    };
+
+    document.getElementById("save").onclick = save;
     
 
   })();
