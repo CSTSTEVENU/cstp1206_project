@@ -13,7 +13,7 @@
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
-    "express-flash": "github:RGBboy/express-flash",
+    "express-flash": "^0.0.2",
     "express-generator": "^4.16.1",
     "express-session": "^1.17.2",
     "http-errors": "~1.6.3",
