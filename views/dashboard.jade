@@ -1,6 +1,7 @@
 extends layout
 
 block content
+  div#main_content
     .sidebar
       ul.nav-links
         nav
@@ -9,9 +10,9 @@ block content
             a.admin_name(href='editProfile?id=#{user.id}') #{user.name}
         br
         li.yourdesgin 
-          a(href='#')
+          a(href='/foldermanager/get/#{defaultFolder.id}')
            i.bx.bx-folder 
-           span.lins_name Your Desgin 
+           span.lins_name #{defaultFolder.folderName} 
 
         li.favororities
           a(href='#')
@@ -21,8 +22,8 @@ block content
           a(href='#')
             i.bx.bx-add-to-queue
             span.links_name(type='button' onclick='toggleMe()') Add New Folder
-        li(id="add_folder_link")
-            div#popup
+        li#popup
+            div
                 input(type='text', id='new_folder_name')
                 button(onclick='saveFolder(document.getElementById("new_folder_name").value);toggleMe();') Save
    
@@ -33,41 +34,20 @@ block content
                     span.links_name #{folder.folderName}
         li.log_out
           a(href="/logout")
-            i.bx.bx-heart
+            i.bx.bx-logout
             span.links_name Logout
-          
     .rigthtop
         a(href='#')
           i.bx.bx-add-to-queue
-          span.links_name(type='button' onclick='toggleMe()') Add New Folder
-      li(id="add_folder_link")
-          div#popup
-              input(type='text', id='new_folder_name')
-              button(onclick='saveFolder(document.getElementById("new_folder_name").value);toggleMe();') Save
-  
-      each folder in folders
-          li
-              a(href='#')
-                  i.bx.bx-folder
-                  span.links_name #{folder.folderName}
-      li.log_out
-        a(href="/logout")
-          i.bx.bx-heart
-          span.links_name Logout
-        
-  .rigthtop
-      a(href='#')
-        i.bx.bx-add-to-queue
-        a.i(href='/whiteboard', title='Create New Desgin') Create New Desgin
-    
+          a.i(href='/whiteboard', title='Create New Desgin') Create New Desgin
+        each image in images 
+          image(src=image.data, width=100, height=100)
+      
     style.
       #popup {
           display: none;
           }
-      form
-
-    script.
-        function toggleMe() {
-        var text = document.getElementById('popup')
-        text.style.display = window.getComputedStyle(text, null).display === 'none' ? 'block' : 'none'
-        }
+      #main_content {
+        display: flex;
+      }
+        

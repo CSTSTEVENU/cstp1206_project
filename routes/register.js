@@ -35,7 +35,8 @@ router.post('/', async (req, res) => {
     
     await prisma.folder.create({data:{
       folderName: "Your Design",
-      user_id: newUser.id
+      user_id: newUser.id,
+      isDefault: true
     }});
     res.redirect('/login');
   }catch(error)

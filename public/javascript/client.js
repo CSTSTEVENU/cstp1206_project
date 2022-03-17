@@ -1,7 +1,11 @@
 function validatePassword(checkEmpty=true){
     let pwd = document.getElementById("pwd").value;
     let cmpwd = document.getElementById("cmpwd").value;
+    let userName = document.getElementById("username");
     let message = document.getElementById("message");
+    if(userName === ""){
+        return false;
+    }
     if (pwd ==="" && cmpwd ==="" && !checkEmpty){
         return;
     }
@@ -57,9 +61,15 @@ function saveFolder(folderName){
             aNode.appendChild(iNode);
             aNode.appendChild(spanNode);
             liNode.appendChild(aNode);
-            document.getElementById("add_folder_link").insertAdjacentElement("afterend",liNode);
+            document.getElementById("popup").insertAdjacentElement("afterend",liNode);
         }
     };
     xhttp.open("POST", "/foldermanager/create/" + folderName);
     xhttp.send();
 }
+
+
+function toggleMe() {
+    var text = document.getElementById('popup')
+    text.style.display = window.getComputedStyle(text, null).display === 'none' ? 'block' : 'none'
+  }
