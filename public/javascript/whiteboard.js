@@ -222,9 +222,13 @@
       
     }  
     
+    document.getElementById("showText").onclick = () =>{
+      document.getElementById("textToAddDiv").style.display='block';
+    }
     document.getElementById("addText").onclick = () =>{
       var text = new fabric.Text(document.getElementById("textToAdd").value, { left: 100, top: 100 });
       canvas.add(text);
+      document.getElementById("textToAddDiv").style.display='none';
     }
 
 

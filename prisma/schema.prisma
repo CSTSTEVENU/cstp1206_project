@@ -7,24 +7,25 @@ generator client {
 
 datasource db {
   provider          = "mysql"
-
   url               = env("DATABASE_URL")
   shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model User {
-  id                Int    @id @default(autoincrement())
-  username          String
-  lowercaseUsername String @unique
+  id                Int      @id @default(autoincrement())
+  name          String
+  email String   @unique
   password          String
+  folder            folder[]
 }
 
 model folder {
   id         Int     @id @default(autoincrement())
   folderName String  @map("folder_name")
-  owner      user?   @relation(fields: [user_id], references: [id])
-  user_id    Int?
+  owner      User?   @relation(fields: [user_id], references: [id])
+  user_id    Int
   images     image[]
+  isDefault  Boolean? @map("is_default") @default(false)
 }
 
 model image {

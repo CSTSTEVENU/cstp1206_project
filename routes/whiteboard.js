@@ -10,10 +10,10 @@ router.get('/', function(req, res, next) {
   
 
   router.post('/', async function(req, res, next){
-    
+    let defaultFolder = await prisma.folder.findFirst({where: {user_id: req.session.user.user_id, isDefault: true }});
     await prisma.image.create({data: {
         data : req.body.data,
-        folder_id: 1
+        folder_id: defaultFolder.id
     }});
     // console.info(req.body.data);
 
