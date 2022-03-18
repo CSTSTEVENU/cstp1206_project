@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* font-family: 'Fredoka', sans-serif; */
+    width: 100%;
+}
+section {
+    background-image: url("/image/mobile_background.png");
+    height: 740px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* padding-top: 40px; */
+    padding-bottom: 40px;
+    width: 100%;
+}
+
+@media (min-width: 768px) { 
+    section {
+        background-image: url("/image/desktop_background.png");
+    }
+}

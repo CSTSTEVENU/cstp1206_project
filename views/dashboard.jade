@@ -1,4 +1,9 @@
 extends layout
+head 
+  block style 
+    link(rel='stylesheet' href='stylesheets/style.css')
+    link(href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css', rel='stylesheet')
+    link(rel='stylesheet', href='boxicons.min.css')
 
 block content
   div#main_content
@@ -40,6 +45,7 @@ block content
         a(href='#')
           i.bx.bx-add-to-queue
           a.i(href='/whiteboard', title='Create New Desgin') Create New Desgin
+    .rightbutton
         each image in images 
           image(src=image.data, width=100, height=100)
       

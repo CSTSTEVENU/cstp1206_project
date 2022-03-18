@@ -298,6 +298,7 @@ label{
   border-radius: 15px ;  
     
 }
+/* dashboard sidebar css style要複製到新的css file*/
 /* Googlefont Poppins CDN Link */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 *{
@@ -355,6 +356,7 @@ label{
   bottom: 0;
   width: 100%;
 }
+/* create design 的位置：淺藍區域 */
 .rigthtop{
   float:right;
   height: 280px;
@@ -373,6 +375,16 @@ label{
 .rigthtop.active{
   height: 60px;
 } 
+
+/* 圖片顯示區 */
+.rigthbutton {
+  height:32px;
+  width:32px;
+};
+.rigthbutton.active{
+  height: 60px;
+} 
+
 .home-section{
   position: relative;
   background: #f5f5f5;
@@ -414,7 +426,7 @@ nav .sidebar-button i{
   font-size: 35px;
   margin-right: 10px;
 }
-.home-section nav .search-box{
+/* .home-section nav .search-box{
   position: relative;
   height: 50px;
   max-width: 550px;
@@ -430,8 +442,8 @@ nav .search-box input{
   border-radius: 6px;
   font-size: 18px;
   padding: 0 15px;
-}
-nav .search-box .bx-search{
+} */
+/* nav .search-box .bx-search{
   position: absolute;
   height: 40px;
   width: 40px;
@@ -445,7 +457,7 @@ nav .search-box .bx-search{
   color: #fff;
   font-size: 22px;
   transition: all 0.4 ease;
-}
+} */
 .home-section nav .profile-details{
   display: flex;
   align-items: center;
@@ -477,7 +489,7 @@ nav .profile-details i{
   position: relative;
   padding-top: 104px;
 }
-.home-content .overview-boxes{
+/* .home-content .overview-boxes{
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -516,7 +528,7 @@ nav .profile-details i{
 .home-content .box .indicator{
   display: flex;
   align-items: center;
-}
+} */
 /* Responsive Media Query */
 @media (max-width: 1240px) {
   .sidebar{
