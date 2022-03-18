@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fredoka&family=Vollkorn:wght@500&display=swap');
 
-
 *{
     margin: 0;
     padding: 0;
@@ -24,21 +23,22 @@ body {
 
 .col-md-5{
     z-index: 1;
-    color:bisque;
+    /* color:bisque; */
 }
 
-.col-md-6 {
+.col-md-6  {
     position: absolute; 
     top:0; 
     bottom:0; 
     right:0; 
-    background-image: url(./rawpixel-com-250921-unsplash_1024x1024.png);
+    background-image: url("/image/about_image.png");
 }
 
 .bg-cover{
     background-size: cover;
     background-position: center center;
 }
+
 
 @media (min-width: 768px) { 
     .text-md-dark{

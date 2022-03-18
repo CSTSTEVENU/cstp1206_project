@@ -9,8 +9,16 @@ router.get('/', function(req,res){
 });
 //to login
 router.post('/',async function (req,res) {
-      const  email=req.body.email.trim();
+      // const str = undefined;
+      // str.trim();
+      // const email = undefined; 
+      // const str = email || '';
+      const  email=req.body.email.trim(); //表示去掉空格
       const pwd=req.body.password.trim();
+      // const  email=req.body.email;
+      // const pwd=req.body.password;
+      console.log(email);
+      console.log(pwd);
 console.log('username:'+email+' password:'+pwd);
 
 // const selectSQL = "select * from user where username = '"+name+"'";
