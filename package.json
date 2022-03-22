@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "dotenv": "^14.3.2",
+    "eslint": "^8.11.0",
     "nodemon": "^2.0.15",
     "prisma": "^3.10.0"
   }

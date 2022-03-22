@@ -1,10 +1,9 @@
 var express = require('express');
 var router = express.Router();
-router.get('/', function(req, res, next) {
+/*Once the user logout the browers cookie will clear the user name and then go back to the Login page.*/ 
+router.get('/', function(req, res) {
     res.clearCookie('username');
     res.redirect('/login')
   });
   
-
-
   module.exports = router;

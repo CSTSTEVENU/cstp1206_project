@@ -1,3 +1,4 @@
+/*Created from http://fabricjs.com/freedrawing */
 (function() {
     var $ = function(id){return document.getElementById(id)};
     var canvas = this.__canvas = new fabric.Canvas('c', {
@@ -126,7 +127,7 @@
       else {
         canvas.freeDrawingBrush = new fabric[this.value + 'Brush'](canvas);
       }
-  
+      //color
       if (canvas.freeDrawingBrush) {
         var brush = canvas.freeDrawingBrush;
         brush.color = drawingColorEl.value;
@@ -143,7 +144,7 @@
         });
       }
     };
-  
+    
     drawingColorEl.onchange = function() {
       var brush = canvas.freeDrawingBrush;
       brush.color = this.value;
@@ -179,7 +180,7 @@
         color: drawingShadowColorEl.value,
       });
     }
-
+    // copy and paste
     var copy = () => {
       // clone what are you copying since you
       // may want copy and paste on different moment.
@@ -216,12 +217,16 @@
         canvas.requestRenderAll();
       });
     };
+    document.getElementById("copy").onclick = copy;
+    document.getElementById("paste").onclick = paste;
 
     document.getElementById("undo").onclick = ()=>{
       canvas.undo();
       
-    }  
+    } 
     
+    
+    // Add Text
     document.getElementById("showText").onclick = () =>{
       document.getElementById("textToAddDiv").style.display='block';
     }
@@ -232,8 +237,8 @@
     }
 
 
-    document.getElementById("copy").onclick = copy;
-    document.getElementById("paste").onclick = paste;
+    // document.getElementById("copy").onclick = copy;
+    // document.getElementById("paste").onclick = paste;
 
     // support change font
     document.getElementById('font-family').onchange = function() {
@@ -242,6 +247,7 @@
         canvas.requestRenderAll();
     };
 
+    // Photos-choose the images from local
     document.getElementById("myImage").addEventListener('change', (e) =>{
       canvas.requestRenderAll();
       let reader = new FileReader();
@@ -263,6 +269,7 @@
       reader.readAsDataURL(e.target.files[0]);
     });
 
+    // Save-- When click save button , the images will saved in database
     var save = () =>{
       let imageData = canvas.toDataURL({
         format: 'jpeg',
@@ -276,12 +283,30 @@
           console.info("success");
         }
       };
-
       httpRequest.setRequestHeader("Content-type", "application/json;charset=UTF-8");
       httpRequest.send(JSON.stringify({imageName: "noname", data: imageData}));
     };
 
+  // Shape   
+    document.getElementById("shape_button").onclick = () =>{
+      var shape = document.getElementById('shape_list')
+      shape.style.display= document.getElementById("shape_list").style.display === 'none' ? 'block' : 'none';
+    }
+    var addShape = (e) =>{
+      const index = e.currentTarget.getAttribute("id").split('_');
+      fabric.loadSVGFromURL('http://fabricjs.com/assets/' + index[2] + ".svg", function(objects, options){
+        let loadedObject = fabric.util.groupSVGElements(objects, options);
+        loadedObject.set({
+            left: 100,
+            top: 100
+        }).setCoords();
+        canvas.add(loadedObject);
+      });
+    };
     document.getElementById("save").onclick = save;
+    for (let ele of document.getElementsByClassName("svg_shape")){
+          ele.addEventListener('click', addShape);
+    }
     
 
   })();

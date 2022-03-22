@@ -3,8 +3,8 @@ var router = express.Router();
 const { PrismaClient } = require( '@prisma/client');
 const prisma = new PrismaClient()
 
-/* GET home page. */
-router.get('/', async function(req, res, next) {
+/* Landing page after user login successfully, show user default design folder. */
+router.get('/', async function(req, res) {
   let folderList = await prisma.folder.findMany({where: {AND: [{user_id: req.session.user.id},
     { isDefault: false}]}} );
   let defaultFolder = await prisma.folder.findFirst({where: {AND: [{user_id: req.session.user.id }, 
@@ -24,13 +24,8 @@ router.get('/', async function(req, res, next) {
 
 });
 
-router.get('/logout', function(req, res, next) {
+router.get('/logout', function(req, res) {
   res.render('logout');
 });
-
-
-
-
-
 
 module.exports = router;

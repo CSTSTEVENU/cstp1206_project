@@ -3,7 +3,8 @@ var router = express.Router();
 const bcrypt = require('bcrypt')
 const { PrismaClient } = require( '@prisma/client');
 const prisma = new PrismaClient()
-
+/* Allow the user to create an account by Email, once the account be created successfully, the user own 
+Your Degsin folder is also created.*/
 router.get('/', function(req, res) {
   console.info("I'm in the Register Router");
   res.render('register.jade');

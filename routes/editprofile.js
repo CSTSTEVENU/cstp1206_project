@@ -1,19 +1,18 @@
-
 var express = require('express');
 var router = express.Router();
 const { PrismaClient } = require( '@prisma/client');
 const prisma = new PrismaClient()
 const bcrypt = require('bcrypt')
-/* GET home page. */
-router.get('/', function(req, res, next) {
+/* User profile edit page, allow to change user's name and password. */
+router.get('/', function(req, res) {
   res.render('editprofile', { user: req.session.user });
 });
-router.post('/',async function(req,res,next){
+router.post('/',async function(req,res){
     try{
         
-        data = {};
+        const data = {};
         if (req.body.pwd){
-            const hashedPassword = await bcrypt.hash(req.body.pwd, 10);
+            const hashedPassword = await hash(req.body.pwd, 10);
             data["password"] = hashedPassword;
         }
 

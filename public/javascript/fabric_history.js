@@ -1,4 +1,4 @@
-
+/*Created from https://github.com/alimozdemir/fabric-history */
 /**
  * Override the initialize function for the _historyInit();
  */
