@@ -1,29 +1,23 @@
-const  express = require('express');
-const router = express.Router();
+var express = require('express');
+var router = express.Router();
 const { PrismaClient } = require( '@prisma/client');
-const { render } = require('../app');
 const prisma = new PrismaClient()
 const bcrypt = require('bcrypt')
+/*Login page, user input the email and password. Find email first in database and compare with password
+ the  in database. After correct, then user can login account and to go the dashboard.
+ Cookie save the user name in the browers.*/ 
 router.get('/', function(req,res){
   res.render("login.jade");
 });
 //to login
 router.post('/',async function (req,res) {
-      // const str = undefined;
-      // str.trim();
-      // const email = undefined; 
-      // const str = email || '';
-      const  email=req.body.email.trim(); //表示去掉空格
+      const  email=req.body.email.trim(); 
       const pwd=req.body.password.trim();
-      // const  email=req.body.email;
-      // const pwd=req.body.password;
       console.log(email);
       console.log(pwd);
 console.log('username:'+email+' password:'+pwd);
 
-// const selectSQL = "select * from user where username = '"+name+"'";
 const people = await prisma.user.findFirst({where: {email: email}} );
-// const people = getUser(name);
 console.log(people);
 const cq = await bcrypt.compare(pwd, people.password);
 

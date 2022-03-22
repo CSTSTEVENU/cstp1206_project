@@ -1,14 +1,13 @@
 var express = require('express');
 var router = express.Router();
-
 /* GET users listing. */
 
-router.get('/', function(req, res, next) {
-  res.render('users.jade', {data:data});
+router.get('/', function(req, res) {
+  res.render('users.jade');
 });
 /* GET home page. */
 router.get('/:username', 
-    function(req, res, next) {
+    function(req, res) {
       const {username}= req.params;
       const user = data.find(
       (value) => value.username === username
@@ -18,7 +17,7 @@ router.get('/:username',
         throw new Error('user does not exist');
        
 
-      }else{}
+      }
 
       res.render('[username]', 
            { 

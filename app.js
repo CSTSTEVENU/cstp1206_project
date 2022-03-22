@@ -1,3 +1,6 @@
+/*App File  */
+
+// setup environment according to profile 
 if(process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
@@ -11,6 +14,7 @@ const flash =require('express-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
 
+//Router
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const loginRouter = require('./routes/login');
@@ -24,6 +28,8 @@ const contactRouter = require('./routes/contact');
 const aboutRouter = require('./routes/about');
 
 const app = express();
+
+//Bcrypt
 const bcrypt = require('bcrypt')
 const passport = require('passport')
 const initializePassport = require('./passport-config')
@@ -37,8 +43,6 @@ const users = []
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-
-
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -55,6 +59,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'))
 
+// Authenticate
 app.get('/', checkAuthenticated, (req, res) => {
   
   res.render('index.jade',{name: req.cookies.username})
@@ -74,13 +79,7 @@ function checkAuthenticated(req, res, next){
   }
 }
 
-function checkNotAuthenticated(req, res,next){
-  if(req.isAuthenticated(req)){
-    return res.redirect('/')
-  }
-  next()
-}
-
+// app.use
 app.use('/index', indexRouter);
 app.use('/users', usersRouter);
 app.use('/login', loginRouter);
@@ -100,7 +99,7 @@ app.use(function(req, res, next) {
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function(err, req, res) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -110,5 +109,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.get("/", function(req,res){
+res.render("index.jade");
+});
 
 module.exports = app;
