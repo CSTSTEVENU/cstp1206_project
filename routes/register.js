@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const bcrypt = require('bcrypt')
 const { PrismaClient } = require( '@prisma/client');
 const prisma = new PrismaClient()
@@ -28,7 +28,7 @@ router.post('/', async (req, res) => {
     }
 
     const hashedPassword = await bcrypt.hash(req.body.pwd, 10)
-    var newUser = await prisma.user.create({data:{
+    const newUser = await prisma.user.create({data:{
       name: req.body.username,
       email: req.body.email,
       password: hashedPassword

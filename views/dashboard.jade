@@ -1,59 +1,75 @@
 extends layout
-head 
-  block style 
-    link(rel='stylesheet' href='stylesheets/style.css')
-    link(href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css', rel='stylesheet')
-    link(rel='stylesheet', href='boxicons.min.css')
 
-block content
-  div#main_content
-    .sidebar
-      ul.nav-links
-        nav
-          .profile-details
-            img(src='images/profile.jpg', alt='')
-            a.admin_name(href='editProfile?id=#{user.id}') #{user.name}
-        br
-        li.yourdesgin 
-          a(href='/foldermanager/get/#{defaultFolder.id}')
-           i.bx.bx-folder 
-           span.lins_name #{defaultFolder.folderName} 
-
-        li.favororities
-          a(href='#')
-            i.bx.bx-heart
-            span.links_name Favrorites
-        li.add
-          a(href='#')
-            i.bx.bx-add-to-queue
-            span.links_name(type='button' onclick='toggleMe()') Add New Folder
-        li#popup
-            div
-                input(type='text', id='new_folder_name')
-                button(onclick='saveFolder(document.getElementById("new_folder_name").value);toggleMe();') Save
-   
-        each folder in folders
-            li
-                a(href='/foldermanager/get/#{folder.id}')
-                    i.bx.bx-folder
-                    span.links_name #{folder.folderName}
-        li.log_out
-          a(href="/logout")
-            i.bx.bx-logout
-            span.links_name Logout
-    .rigthtop
-        a(href='#')
-          i.bx.bx-add-to-queue
-          a.i(href='/whiteboard', title='Create New Desgin') Create New Desgin
-    .rightbutton
-        each image in images 
-          image(src=image.data, width=100, height=100)
-      
-    style.
-      #popup {
-          display: none;
-          }
-      #main_content {
-        display: flex;
-      }
+head
+    meta(charset='utf-8')  
+    meta(name='viewport', content='width=device-width, initial-scale=1') 
+    block style
+        link(rel='stylesheet', href='/stylesheets/dashboard.css') 
+        link(href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css', rel='stylesheet')
+        link(rel='stylesheet', href='boxicons.min.css')
+        link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css', rel='stylesheet')
+        script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js')
         
+body
+  block content
+    // left sidebar
+    .container-fluid
+      .row.flex-nowrap
+        .col-auto.col-xl-2.px-sm-2.px-0.bg-dark
+          .left-sidebar-area.d-flex.flex-column.align-items-center.align-items-sm-start.px-3.pt-2.text-white
+            a.d-flex.align-items-center.pb-3.mb-md-0.me-md-auto.text-white.text-decoration-none.admin_name(href='editProfile?id=#{user.id}')
+              img.rounded-circle(src='https://github.com/mdo.png', alt='hugenerd', width='30', height='30') 
+              div.username #{user.name}       
+            // left side bar item
+            ul.left-sidebar-item.nav.nav-pills.flex-column.align-items-center.align-items-sm-start
+              li.other-folder.nav-item
+                .align-middle.px-0
+                  a(href='/foldermanager/get/#{defaultFolder.id}')
+                    i.bx.bx-folder
+                    span.links_name #{defaultFolder.folderName}                    
+              li
+                .px-0.align-middle
+                  i.bx.bx-heart
+                  span.links_name.ms-1.d-none.d-sm-inline Favorite                    
+              li
+                .px-0.align-middle
+                  i.bx.bx-add-to-queue                               
+                  span.ms-1.d-none.d-sm-inline(class="add-folder" type='button' onclick='toggleMe()') Add New Folder
+              li#popup
+                div
+                    input(type='text', id='new_folder_name')
+                    button(onclick='saveFolder(document.getElementById("new_folder_name").value);toggleMe();') Save
+              each folder in folders
+                  li.other-folder
+                    a(href='/foldermanager/get/#{folder.id}')
+                        i.bx.bx-folder
+                        span.links_name #{folder.folderName}
+            // logout area     
+            ul.logout.nav.nav-pills.flex-column.mb-sm-auto.mb-0.align-items-center.align-items-sm-start
+              li.nav-item
+                div      
+                    a(href="/logout")
+                      i.bx.bx-log-out
+                      span.ms-1.d-none.d-sm-inline Log out
+        // end left sidebar
+        // create design area
+        .col
+          .container
+            .row
+              .design.col.text-center
+                a(href='/whiteboard', title='Create New Desgin')
+                  img(src='https://img.icons8.com/external-becris-lineal-becris/344/4a90e2/external-add-mintab-for-ios-becris-lineal-becris.png')
+                  h3 Create a new design
+            hr
+            // user design area
+            .image-design.row
+              .col-md.py-3
+                each image in images 
+                    image(src=image.data, width=100, height=100)
+        style.
+            #popup {
+                display: none;
+                }
+            #main_content {
+                display: flex;
+            }

@@ -19,13 +19,14 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
-const dashboardRouter = require('./routes/dashboard')
-const editprofileRouter = require('./routes/editprofile')
-const foldermanagerRouter = require('./routes/foldermanager')
-const whiteboardRouter = require('./routes/whiteboard')
-const logoutRouter = require('./routes/logout')
+const dashboardRouter = require('./routes/dashboard');
+const editprofileRouter = require('./routes/editprofile');
+const foldermanagerRouter = require('./routes/foldermanager');
+const whiteboardRouter = require('./routes/whiteboard');
+const logoutRouter = require('./routes/logout');
 const contactRouter = require('./routes/contact');
 const aboutRouter = require('./routes/about');
+const communityRouter = require('./routes/community');
 
 const app = express();
 
@@ -91,6 +92,7 @@ app.use('/whiteboard', whiteboardRouter);
 app.use('/logout', logoutRouter);
 app.use('/contact', contactRouter);
 app.use('/about', aboutRouter);
+app.use('/community', communityRouter);
 
 
 // catch 404 and forward to error handler

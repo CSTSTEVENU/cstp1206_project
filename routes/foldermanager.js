@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const { PrismaClient } = require( '@prisma/client');
 const prisma = new PrismaClient()
 
@@ -16,7 +16,7 @@ router.post('/create/:folder_name', async function(req, res) {
 });
 
 router.get('/get/:folder_id', async function (req, res) {
-  var folderId = parseInt(req.params["folder_id"].trim());
+  const folderId = parseInt(req.params["folder_id"].trim());
   if (isNaN(folderId)) {
     var images = {};
   }

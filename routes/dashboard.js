@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const { PrismaClient } = require( '@prisma/client');
 const prisma = new PrismaClient()
 
@@ -9,8 +9,8 @@ router.get('/', async function(req, res) {
     { isDefault: false}]}} );
   let defaultFolder = await prisma.folder.findFirst({where: {AND: [{user_id: req.session.user.id }, 
     {isDefault: true}]}});
-  var folderId = defaultFolder.id;
-  var images = await prisma.image.findMany({
+  const folderId = defaultFolder.id;
+  const images = await prisma.image.findMany({
     where: {
       folder_id: {
         equals: folderId
