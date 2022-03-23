@@ -1,0 +1,124 @@
+html(lang='en' ng-app='kitchensink')
+head
+  meta(charset='utf-8')
+  link(rel='stylesheet' href='stylesheets/master.css')
+  style.
+    pre { margin-left: 15px !important }
+  script(src='javascript/fabric.min.js')
+  script(src='javascript/fabric_history.js')
+  script(src='javascript/client.js')
+body
+  script(async='' defer='' src='https://buttons.github.io/buttons.js')
+  #bd-wrapper(ng-controller='CanvasControls')
+    style.
+      #drawing-mode {
+      margin-bottom: 10px;
+      vertical-align: top;
+      }
+      #drawing-mode-options {
+      display: inline-block;
+      vertical-align: top;
+      margin-bottom: 10px;
+      margin-top: 10px;
+      background: #f5f2f0;
+      padding: 10px;
+      }
+      label {
+      display: inline-block; width: 130px;
+      }
+      .info {
+      display: inline-block;
+      width: 25px;
+      background: #ffc;
+      }
+      #bd-wrapper {
+      min-width: 1500px;
+      }
+    canvas#c(width='800' height='800' style='border:1px solid #aaa')
+    div(style='display: inline-block; margin-left: 10px')
+      button#drawing-mode.btn.btn-info Cancel drawing mode
+      button#save Save
+      button#shape_button Shape
+      br
+      button#clear-canvas.btn.btn-info Delete
+      button#undo.btn.btn-info Previous
+      button#copy Copy
+      button#paste Paste
+      br
+      input(type="file" id="myImage" accept="image/png, image/gif, image/jpeg")
+      br
+      button#showText Text
+      div#textToAddDiv(style='display:none')
+        input#textToAdd(width=10)
+        button#addText Save
+      br
+      span Font-family:
+      select#font-family
+        option(value='Times New Roman') Times New Roman
+        option(value='Arial') Arial
+        option(value='Verdana') Verdana
+        option(value='Impact') Impact
+        option(value='Tahoma') Tahoma
+
+        br
+      #drawing-mode-options
+        label(for='drawing-mode-selector') Mode:
+        select#drawing-mode-selector
+          option Pencil
+          option Circle
+          option Spray
+          option Pattern
+          option hline
+          option vline
+          option square
+          option diamond
+        br
+        label(for='drawing-line-width') Line width:
+        span.info 30
+        input#drawing-line-width(type='range' value='30' min='0' max='150')
+        br
+        label(for='drawing-color') Line color:
+        input#drawing-color(type='color' value='#005E7A')
+        br
+        label(for='drawing-shadow-color') Shadow color:
+        input#drawing-shadow-color(type='color' value='#005E7A')
+        br
+        label(for='drawing-shadow-width') Shadow width:
+        span.info 0
+        input#drawing-shadow-width(type='range' value='0' min='0' max='50')
+        br
+        label(for='drawing-shadow-offset') Shadow offset:
+        span.info 0
+        input#drawing-shadow-offset(type='range' value='0' min='0' max='50')
+        br
+      div#shape_list(style='display:none')
+    br
+    br
+
+  script.
+    (function(){
+    var mainScriptEl = document.getElementById('main');
+    if (!mainScriptEl) return;
+    var preEl = document.createElement('pre');
+    var codeEl = document.createElement('code');
+    codeEl.innerHTML = mainScriptEl.innerHTML;
+    codeEl.className = 'language-javascript';
+    preEl.appendChild(codeEl);
+    document.getElementById('bd-wrapper').appendChild(preEl);
+    })();
+  script.
+    (function() {
+    window.addEventListener('load', function() {
+    var canvas = this.__canvas || this.canvas,
+    canvases = this.__canvases || this.canvases;
+    canvas && canvas.calcOffset && canvas.calcOffset();
+    if (canvases && canvases.length) {
+    for (var i = 0, len = canvases.length; i < len; i++) {
+    canvases[i].calcOffset();
+    }
+    }
+    });
+    })();
+  script.
+    loadShapes();
+  script(src='javascript/whiteboard.js')

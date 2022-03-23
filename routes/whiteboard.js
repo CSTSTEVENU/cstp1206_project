@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const { PrismaClient } = require( '@prisma/client');
 const prisma = new PrismaClient()
 /* When user clicks the Create a New Degsin button, go to whiteboard page.
