@@ -5,7 +5,7 @@ const prisma = new PrismaClient()
 const bcrypt = require('bcrypt')
 /* User profile edit page, allow to change user's name and password. */
 router.get('/', function(req, res) {
-  res.render('editprofile', { user: req.session.user });
+  res.render('editprofile', { user: req.session.user, title: "Edit Profile" });
 });
 router.post('/',async function(req,res){
     try{

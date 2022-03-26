@@ -7,7 +7,7 @@ const prisma = new PrismaClient()
 Your Degsin folder is also created.*/
 router.get('/', function(req, res) {
   console.info("I'm in the Register Router");
-  res.render('register.jade');
+  res.render('register.jade', { title: 'Register' });
 });
 
 router.post('/', async (req, res) => {

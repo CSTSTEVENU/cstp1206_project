@@ -7,7 +7,7 @@ const bcrypt = require('bcrypt')
  the  in database. After correct, then user can login account and to go the dashboard.
  Cookie save the user name in the browers.*/ 
 router.get('/', function(req,res){
-  res.render("login.jade");
+  res.render("login.jade", { title: 'Login' });
 });
 //to login
 router.post('/',async function (req,res) {
