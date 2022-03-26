@@ -15,7 +15,7 @@ const session = require('express-session')
 const methodOverride = require('method-override')
 
 //Router
-const indexRouter = require('./routes/index');
+const homeRouter = require('./routes/home');
 const usersRouter = require('./routes/users');
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
@@ -63,7 +63,7 @@ app.use(methodOverride('_method'))
 // Authenticate
 app.get('/', checkAuthenticated, (req, res) => {
   
-  res.render('index.jade',{name: req.cookies.username})
+  res.render('home.jade',{name: req.cookies.username})
 })
 
 function isAuthenticated(req){
@@ -81,7 +81,7 @@ function checkAuthenticated(req, res, next){
 }
 
 // app.use
-app.use('/index', indexRouter);
+app.use('/home', homeRouter);
 app.use('/users', usersRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
@@ -112,7 +112,7 @@ app.use(function(err, req, res) {
 });
 
 app.get("/", function(req,res){
-res.render("index.jade");
+res.render("home.jade");
 });
 
 module.exports = app;

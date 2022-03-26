@@ -5,7 +5,7 @@ const prisma = new PrismaClient()
 /* When user clicks the Create a New Degsin button, go to whiteboard page.
    Find the default folder first, when user wants to save their images, the images will save in the default_folder.*/
 router.get('/', function(req, res) {
-    res.render('whiteboard', { title: 'Whiteboard' });
+    res.render('whiteboard', { title: 'Create Design' });
   });
   
 

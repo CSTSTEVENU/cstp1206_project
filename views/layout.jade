@@ -15,12 +15,12 @@ html(lang='en', dir='ltr', ng-app='kitchensink')
   body
     nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
       .container-fluid
-        a.navbar-brand(href='/index') Scrapbook
+        a.navbar-brand(href='/home') Scrapbook
         button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarCollapse')
           span.navbar-toggler-icon
         #navbarCollapse.collapse.navbar-collapse
           .navbar-nav
-            a.nav-item.nav-link.active(href='/index') Home
+            a.nav-item.nav-link.active(href='/home') Home
             a.nav-item.nav-link(href='/dashboard') Dashboard
             a.nav-item.nav-link(href='/community') Community
             a.nav-item.nav-link(href='/about') About
@@ -36,7 +36,8 @@ html(lang='en', dir='ltr', ng-app='kitchensink')
       p
         | Scrapbook is powered by
         span Team8
-        |  /
-        span Contact us
+        |  / 
+        span.contact-link
+          a(href='/contact') Contact us
     // End footer
 

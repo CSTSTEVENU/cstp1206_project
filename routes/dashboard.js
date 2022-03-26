@@ -20,7 +20,7 @@ router.get('/', async function(req, res) {
   res.render('dashboard', { user: req.session.user, 
     folders: folderList, 
     defaultFolder:defaultFolder,
-    images: images });
+    images: images, title: 'Dashboard' });
 
 });
 

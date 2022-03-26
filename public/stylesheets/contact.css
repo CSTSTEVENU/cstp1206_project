@@ -33,14 +33,16 @@ body {
 }
 
 .jumbotron h1 {
-  font-weight: 400;
+  font-weight: 550;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   -webkit-text-stroke: 2px #6E2C00;
 }
 
 .jumbotron p {
-  font-weight: 400;
-  /* color: #D7DBDD; */
+  font-weight: 700;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #1A5276;
+  -webkit-text-stroke: 1px #839192;
 }
 
 .container {
