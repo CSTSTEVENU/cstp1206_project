@@ -1,0 +1,115 @@
+// this is the sidebar for the whiteboard, while I believe the code works I can't integrate properly to the main whiteboard page
+doctype html
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css%27)
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet')
+  script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js%27)
+  script(async='' defer='' src='https://buttons.github.io/buttons.js%27)
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  .container-fluid
+    a.navbar-brand(href='#') Scrapbook
+    button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarCollapse')
+      span.navbar-toggler-icon
+    #navbarCollapse.collapse.navbar-collapse
+      .navbar-nav
+        a.nav-item.nav-link.active(href='#') Home
+        a.nav-item.nav-link(href='#') Services
+        a.nav-item.nav-link(href='#') About
+        a.nav-item.nav-link(href='#') Contact
+      .navbar-nav.ms-auto
+        a.nav-item.nav-link(href='#') Login
+        // <a href="#" class="nav-item nav-link">Register</a>
+.parent
+  .div1
+    br
+    button#drawing-mode.btn.btn-info
+      i.fa.fa-ban(aria-hidden='true')
+      | Cancel drawing mode
+    br
+    br
+    button#save
+      | Save 
+      i.fa.fa-floppy-o(aria-hidden='true')
+    br
+    br
+    br
+    button#clear-canvas.btn.btn-info Delete
+    a1.fa.fa-pencil.fa-lg(aria-hidden='true')
+    br
+    br
+    button#undo.btn.btn-info
+      i.fa.fa-arrow-circle-o-left.fa-lg(aria-hidden='true')
+        br
+      | Previous
+    br
+    br
+    button#copy
+      | Copy 
+      i.fa.fa-files-o(aria-hidden='true')
+    br
+    br
+    button#paste
+      | Paste 
+      i.fa.fa-clipboard(aria-hidden='true')
+    br
+    br
+    br
+    input#myImage(type='file' accept='image/png, image/gif, image/jpeg')
+    br
+    br
+    br
+    a1.fa.fa-camera.fa-lg(href='#Photos' <i='' aria-hidden='true')
+      br
+      |  Photos
+    br
+    br
+    a1.fa.fa-home.fa-lg(href='#Home' <i='')
+      br
+      |  Home
+  .div2
+    #bd-wrapper(ng-controller='CanvasControls')
+    div(style='display: inline-block; margin-left: 10px')
+      button#showText Text
+      #textToAddDiv(style='display:none')
+        input#textToAdd(width='10')
+        button#addText Save
+      br
+      span Font-family:
+      select#font-family
+        option(value='Times New Roman') Times New Roman
+        option(value='Arial') Arial
+        option(value='Verdana') Verdana
+        option(value='Impact') Impact
+        option(value='Tahoma') Tahoma
+      #drawing-mode-options
+        label(for='drawing-mode-selector') Mode:
+        select#drawing-mode-selector
+          option Pencil
+          option Circle
+          option Spray
+          option Pattern
+          option hline
+          option vline
+          option square
+          option diamond
+        br
+        label(for='drawing-line-width') Line width:
+        span.info 30
+        input#drawing-line-width(type='range' value='30' min='0' max='150')
+        br
+        label(for='drawing-color') Line color:
+        input#drawing-color(type='color' value='#005E7A')
+        br
+        label(for='drawing-shadow-color') Shadow color:
+        input#drawing-shadow-color(type='color' value='#005E7A')
+        br
+        label(for='drawing-shadow-width') Shadow width:
+        span.info 0
+        input#drawing-shadow-width(type='range' value='0' min='0' max='50')
+        br
+        label(for='drawing-shadow-offset') Shadow offset:
+        span.info 0
+        input#drawing-shadow-offset(type='range' value='0' min='0' max='50')
+        br
