@@ -1,37 +1,13 @@
 //- Created by Jessica Jing and Steven Uhm
 extends layout
 block style 
-  link(rel='stylesheet' href='stylesheets/style.css')
+  //- link(rel='stylesheet' href='stylesheets/style.css')
+  link(rel='stylesheet' href='stylesheets/whiteboard.css')
   script(src='javascript/fabric.min.js')
   script(src='javascript/fabric_history.js')
 
 block content
   #bd-wrapper(ng-controller='CanvasControls')
-    style.
-      #drawing-mode {
-      margin-bottom: 10px;
-      vertical-align: top;
-      }
-      #drawing-mode-options {
-      display: inline-block;
-      vertical-align: top;
-      margin-bottom: 10px;
-      margin-top: 10px;
-      background: #f5f2f0;
-      padding: 10px;
-      }
-      label {
-      display: inline-block; width: 130px;
-      }
-      .info {
-      display: inline-block;
-      width: 25px;
-      background: #ffc;
-      }
-      #bd-wrapper {
-      min-width: 1500px;
-      }
-    
     .main_content
       div.wb_commands
         a#drawing-mode.btn.btn-info(href="#")
@@ -54,11 +30,10 @@ block content
           img(src="https://img.icons8.com/ios/50/ffffff/paste.png")
         br
         div
-          label(for="myImage") 
+          label.btn(for="myImage") 
             img(src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/ffffff/external-photo-editorial-design-flatart-icons-outline-flatarticons.png")
           input(type="file" style="display:none" id="myImage" accept="image/png, image/gif, image/jpeg")
-        br
-        a#showText(href="#")
+        a#showText.btn.btn-info(href="#")
           img(src="https://img.icons8.com/ios/50/ffffff/text.png") 
         div#textToAddDiv(style='display:none')
           
