@@ -36,4 +36,3 @@ model image {
 
   @@map("images")
 }
-
