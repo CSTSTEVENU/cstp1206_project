@@ -1,0 +1,14 @@
+References used
+
+http://fabricjs.com
+http://fabricjs.com/freedrawing
+http://fabricjs.com/assets/
+https://github.com/alimozdemir/fabric-history
+https://fontawesome.com/v4/icons/
+https://icons8.com/icons/set/user--blue
+https://getbootstrap.com/docs/4.0/layout/grid/
+https://unpkg.com/
+https://cssgrid-generator.netlify.app/
+
+Youtube- Node.js login tutorial
+https://www.youtube.com/watch?v=Ud5xKCYQTjM&list=WL&index=5
