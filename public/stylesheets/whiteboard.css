@@ -19,10 +19,6 @@
     padding-left: 5px;
 }
 
-.upload {
-    float: left;
-}
-
 #drawing-mode {
     /* margin-bottom: 10px; */
     vertical-align: top;
@@ -35,6 +31,23 @@
     margin-top: 10px;
     background: #f5f2f0;
     padding: 10px;
+}
+
+.upload {
+    color: white;
+}
+
+.upload:hover {
+    color: white;
+}
+
+.upload img{
+    color: white;
+    margin-right: 8px;
+}
+
+#text.mode {
+    display: none;
 }
 
 label {
