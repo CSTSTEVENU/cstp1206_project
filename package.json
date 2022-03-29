@@ -16,6 +16,7 @@
     "express-flash": "^0.0.2",
     "express-generator": "^4.16.1",
     "express-session": "^1.17.2",
+    "git": "^0.1.5",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "method-override": "^3.0.0",
