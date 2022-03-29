@@ -1,68 +1,55 @@
 //- Created by Jessica Jing and Steven Uhm
 extends layout
 block style 
-  link(rel='stylesheet' href='stylesheets/style.css')
+  //- link(rel='stylesheet' href='stylesheets/style.css')
+  link(rel='stylesheet' href='stylesheets/whiteboard.css')
   script(src='javascript/fabric.min.js')
   script(src='javascript/fabric_history.js')
 
 block content
   #bd-wrapper(ng-controller='CanvasControls')
-    style.
-      #drawing-mode {
-      margin-bottom: 10px;
-      vertical-align: top;
-      }
-      #drawing-mode-options {
-      display: inline-block;
-      vertical-align: top;
-      margin-bottom: 10px;
-      margin-top: 10px;
-      background: #f5f2f0;
-      padding: 10px;
-      }
-      label {
-      display: inline-block; width: 130px;
-      }
-      .info {
-      display: inline-block;
-      width: 25px;
-      background: #ffc;
-      }
-      #bd-wrapper {
-      min-width: 1500px;
-      }
-    
     .main_content
-      div.wb_commands
-        a#drawing-mode.btn.btn-info(href="#")
-          img(src="https://img.icons8.com/ios-filled/50/ffffff/pen.png")
-          h3 Drawing
-        a#save(href="#")
-          img(src="https://img.icons8.com/ios/50/ffffff/save--v1.png")
-          h3 Save
-        a#shape_button(href="#")
-          img(src="https://img.icons8.com/external-wanicon-solid-wanicon/64/ffffff/external-shape-kindergarten-wanicon-solid-wanicon.png")
-          h3 Shape
-        br
-        a#clear-canvas.btn.btn-info(href="#")
-        img(src="https://img.icons8.com/wired/64/ffffff/filled-trash.png")
-        h3 Delete
-        a#undo.btn.btn-info(href="#")
-          img(src="https://img.icons8.com/dotty/80/ffffff/undo.png") 
-          h3 Previous
-        a#copy(href="#")
-          img(src="https://img.icons8.com/ios/50/ffffff/new-by-copy--v1.png")
-          h3 Copy
-        a#paste(href="#")
-          img(src="https://img.icons8.com/ios/50/ffffff/paste.png")
-          h3 Paste
-        br
+      div.wb_commands.bg-dark
+        ul.left-sidebar-item.nav.nav-pills.flex-column.align-items-center.align-items-sm-start
+          li.nav-item
+            a#drawing-mode.btn(href="#")
+              img(src="https://img.icons8.com/ios-filled/50/ffffff/pen.png")
+              span Drawing
+          li.nav-item
+            a#save.btn(href="#")
+              img(src="https://img.icons8.com/ios/50/ffffff/save--v1.png")
+              span Save
+          li.nav-item
+            a#shape_button.btn(href="#")
+              img(src="https://img.icons8.com/external-wanicon-solid-wanicon/64/ffffff/external-shape-kindergarten-wanicon-solid-wanicon.png")
+              span Shape
+          li.nav-item
+            a#clear-canvas.btn(href="#")
+              img(src="https://img.icons8.com/wired/64/ffffff/filled-trash.png")
+              span Delete
+          li.nav-item
+            a#undo.btn(href="#")
+              img(src="https://img.icons8.com/dotty/80/ffffff/undo.png") 
+              span Previous
+          li.nav-item
+            a#copy.btn(href="#")
+              img(src="https://img.icons8.com/ios/50/ffffff/new-by-copy--v1.png")
+              span Copy
+          li.nav-item
+            a#paste.btn(href="#")
+              img(src="https://img.icons8.com/ios/50/ffffff/paste.png")
+              span Paste
+          li.nav-item
+            label.upload.btn(for="myImage") 
+              img(src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/ffffff/external-photo-editorial-design-flatart-icons-outline-flatarticons.png")
+              span Upload
+              input(type="file" style="display:none" id="myImage" accept="image/png, image/gif, image/jpeg")
+
         div
-          label(for="myImage") 
+          label.btn(for="myImage") 
             img(src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/ffffff/external-photo-editorial-design-flatart-icons-outline-flatarticons.png")
           input(type="file" style="display:none" id="myImage" accept="image/png, image/gif, image/jpeg")
-        br
-        a#showText(href="#")
+        a#showText.btn.btn-info(href="#")
           img(src="https://img.icons8.com/ios/50/ffffff/text.png") 
         div#textToAddDiv(style='display:none')
         
