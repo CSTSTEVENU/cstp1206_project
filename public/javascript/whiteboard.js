@@ -20,14 +20,16 @@
   
     drawingModeEl.onclick = function() {
       canvas.isDrawingMode = !canvas.isDrawingMode;
+      
       if (canvas.isDrawingMode) {
-        drawingModeEl.innerHTML = 'Cancel drawing mode';
+        //drawingModeEl.innerHTML = 'Cancel drawing mode';
         drawingOptionsEl.style.display = '';
       }
       else {
-        drawingModeEl.innerHTML = 'Enter drawing mode';
+        //drawingModeEl.innerHTML = 'Enter drawing mode';
         drawingOptionsEl.style.display = 'none';
       }
+      
     };
   
     if (fabric.PatternBrush) {
@@ -228,13 +230,19 @@
     
     // Add Text
     document.getElementById("showText").onclick = () =>{
-      document.getElementById("textToAddDiv").style.display='block';
+      var tta = document.getElementById("textToAddDiv");
+      tta.style.display='block';
+      //tta.style["flex-direction"]="column";
     }
+    
     document.getElementById("addText").onclick = () =>{
+      
       var text = new fabric.Text(document.getElementById("textToAdd").value, { left: 100, top: 100 });
       canvas.add(text);
       document.getElementById("textToAddDiv").style.display='none';
+      
     }
+    
 
 
     // document.getElementById("copy").onclick = copy;
