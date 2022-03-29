@@ -21,6 +21,18 @@ body {
     position: fixed;
 }
 
+.about-name {
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #34495E;
+}
+.description {
+    font-size: 15px;
+    color: #616A6B ;
+    /* font-weight: 50px; */
+}
+
 .col-md-5{
     z-index: 1;
 }
