@@ -9,31 +9,47 @@ block style
 block content
   #bd-wrapper(ng-controller='CanvasControls')
     .main_content
-      div.wb_commands
-        a#drawing-mode.btn.btn-info(href="#")
-        img(src="https://img.icons8.com/ios-filled/50/ffffff/pen.png" width=50 height=50)
-        a#save(href="#")
-          img(src="https://img.icons8.com/ios/50/ffffff/save--v1.png")
-        a#shape_button(href="#")
-          img(src="https://img.icons8.com/external-wanicon-solid-wanicon/64/ffffff/external-shape-kindergarten-wanicon-solid-wanicon.png")
-          h3 Shape
-        br
-        a#clear-canvas.btn.btn-info(href="#")
-        img(src="https://img.icons8.com/wired/64/ffffff/filled-trash.png"  width=50 height=50)
-        h3 Delete
-        a#undo.btn.btn-info(href="#")
-          img(src="https://img.icons8.com/dotty/80/ffffff/undo.png") 
-          Previous
-        a#copy(href="#")
-          img(src="https://img.icons8.com/ios/50/ffffff/new-by-copy--v1.png")
-        a#paste(href="#")
-          img(src="https://img.icons8.com/ios/50/ffffff/paste.png")
-        br
+      div.wb_commands.bg-dark
+        ul.left-sidebar-item.nav.nav-pills.flex-column.align-items-center.align-items-sm-start
+          li.other-folder.nav-item
+            a#drawing-mode.btn(href="#")
+              img(src="https://img.icons8.com/ios-filled/50/ffffff/pen.png")
+              span.ms-1.d-none.d-sm-inline Drawing
+          li.other-folder.nav-item
+            a#save.btn(href="#")
+              img(src="https://img.icons8.com/ios/50/ffffff/save--v1.png")
+              span.ms-1.d-none.d-sm-inline Save
+          li.other-folder.nav-item
+            a#shape_button.btn(href="#")
+              img(src="https://img.icons8.com/external-wanicon-solid-wanicon/64/ffffff/external-shape-kindergarten-wanicon-solid-wanicon.png")
+              span.ms-1.d-none.d-sm-inline Shape
+          li.other-folder.nav-item  
+            a#clear-canvas.btn(href="#")
+              img(src="https://img.icons8.com/wired/64/ffffff/filled-trash.png")
+              span.ms-1.d-none.d-sm-inline Delete
+          li.other-folder.nav-item
+            a#undo.btn(href="#")
+              img(src="https://img.icons8.com/dotty/80/ffffff/undo.png") 
+              span.ms-1.d-none.d-sm-inline Previous
+          li.other-folder.nav-item
+            a#copy.btn(href="#")
+              img(src="https://img.icons8.com/ios/50/ffffff/new-by-copy--v1.png")
+              span.ms-1.d-none.d-sm-inline Copy
+          li.other-folder.nav-item
+            a#paste.btn(href="#")
+              img(src="https://img.icons8.com/ios/50/ffffff/paste.png")
+              span.ms-1.d-none.d-sm-inline Paste
+          //- li.other-folder.nav-item
+          //-   label.upload.btn.d-none.d-sm-inline(for="myImage") 
+          //-     img(src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/ffffff/external-photo-editorial-design-flatart-icons-outline-flatarticons.png")
+          //-     input(type="file" style="display:none" id="myImage" accept="image/png, image/gif, image/jpeg")
+          //-     | Upload
         div
-          label.btn(for="myImage") 
+          label.upload.btn(for="myImage") 
             img(src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/ffffff/external-photo-editorial-design-flatart-icons-outline-flatarticons.png")
-          input(type="file" style="display:none" id="myImage" accept="image/png, image/gif, image/jpeg")
-        a#showText.btn.btn-info(href="#")
+            input(type="file" style="display:none" id="myImage" accept="image/png, image/gif, image/jpeg")
+            | Upload
+        a#showText.btn(href="#")
           img(src="https://img.icons8.com/ios/50/ffffff/text.png") 
         div#textToAddDiv(style='display:none')
           
