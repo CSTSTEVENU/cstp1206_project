@@ -45,7 +45,6 @@ router.post('/', async (req, res) => {
     console.error(error);
     res.redirect('/register');
   }
-  console.log(newUser)
 })
 
 module.exports = router;

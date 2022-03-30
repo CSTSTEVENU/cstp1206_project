@@ -9,7 +9,7 @@ function validatePassword(checkEmpty=true){
         return false;
     }
     if (pwd ==="" && cmpwd ==="" && !checkEmpty){
-        return;
+        return true;
     }
 
     if (pwd !== cmpwd){

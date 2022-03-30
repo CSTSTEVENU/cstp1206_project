@@ -4,8 +4,8 @@ Team Members:
 Steven Uhm,
 Jeimseu Kim (James),
 Jing Jin (Jessica),
-Tze-Ching Sun (Gina),
-Yoonhee Chang (Yoon)
+Tze-Ching Sun (Gina)
+
 
 Desktop accessible, Mobile friendly
 
