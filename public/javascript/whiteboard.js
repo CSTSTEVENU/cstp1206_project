@@ -228,14 +228,8 @@
     } 
     
     // Add Text
-    // document.getElementById("showText").onclick = () =>{
-    //   var tta = document.getElementById("textToAddDiv");
-    //   tta.style.display=document.getElementById("textToAddDiv").style.display === 'none' ? 'block' : 'none';
-      
-    // }
     document.getElementById("showText").onclick = () =>{
-      var tta = document.getElementById('textToAddDiv')
-      tta.style.display= Window.getElementById("textToAddDiv").style.display === 'none' ? 'block' : 'none';
+      document.getElementById('addTextPart').style.display = document.getElementById("addTextPart").style.display === 'none' ? 'block' : 'none';
     }
     
     document.getElementById("addText").onclick = () =>{
@@ -246,10 +240,6 @@
       
     }
     
-
-
-    // document.getElementById("copy").onclick = copy;
-    // document.getElementById("paste").onclick = paste;
 
     // support change font
     document.getElementById('font-family').onchange = function() {

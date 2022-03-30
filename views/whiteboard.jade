@@ -44,17 +44,17 @@ block content
           //-     img(src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/ffffff/external-photo-editorial-design-flatart-icons-outline-flatarticons.png")
           //-     input(type="file" style="display:none" id="myImage" accept="image/png, image/gif, image/jpeg")
           //-     | Upload
-        div
-          label.upload.btn(for="myImage") 
-            img(src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/ffffff/external-photo-editorial-design-flatart-icons-outline-flatarticons.png")
-            input(type="file" style="display:none" id="myImage" accept="image/png, image/gif, image/jpeg")
-            | Upload
-        a#showText.btn(href="#")
-          img(src="https://img.icons8.com/ios/50/ffffff/text.png") 
-          span.ms-1.d-none.d-sm-inline Text
-        br
+          li.other-folder.nav-item
+            label.upload.btn(for="myImage") 
+              img(src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/ffffff/external-photo-editorial-design-flatart-icons-outline-flatarticons.png")
+              input(type="file" style="display:none" id="myImage" accept="image/png, image/gif, image/jpeg")
+              | Upload
+          li.other-folder.nav-item
+            a#showText.btn(href="#")
+              img(src="https://img.icons8.com/ios/50/ffffff/text.png") 
+              span.ms-1.d-none.d-sm-inline Text
       div
-        div#textToAddDiv(style='display:none')
+        div#addTextPart(style='display:none')
               input#textToAdd(width=10)
               button#addText Add
               br
