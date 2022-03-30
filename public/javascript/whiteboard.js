@@ -227,19 +227,22 @@
       
     } 
     
-    
     // Add Text
+    // document.getElementById("showText").onclick = () =>{
+    //   var tta = document.getElementById("textToAddDiv");
+    //   tta.style.display=document.getElementById("textToAddDiv").style.display === 'none' ? 'block' : 'none';
+      
+    // }
     document.getElementById("showText").onclick = () =>{
-      var tta = document.getElementById("textToAddDiv");
-      tta.style.display='block';
-      //tta.style["flex-direction"]="column";
+      var tta = document.getElementById('textToAddDiv')
+      tta.style.display= Window.getElementById("textToAddDiv").style.display === 'none' ? 'block' : 'none';
     }
     
     document.getElementById("addText").onclick = () =>{
       
       var text = new fabric.Text(document.getElementById("textToAdd").value, { left: 100, top: 100 });
       canvas.add(text);
-      document.getElementById("textToAddDiv").style.display='none';
+      document.getElementById("textToAddDiv").style.display === 'none' 
       
     }
     
@@ -302,7 +305,7 @@
     }
     var addShape = (e) =>{
       const index = e.currentTarget.getAttribute("id").split('_');
-      fabric.loadSVGFromURL('http://fabricjs.com/assets/' + index[2] + ".svg", function(objects, options){
+      fabric.loadSVGFromURL('https://fabricjs.com/assets/' + index[2] + ".svg", function(objects, options){
         let loadedObject = fabric.util.groupSVGElements(objects, options);
         loadedObject.set({
             left: 100,

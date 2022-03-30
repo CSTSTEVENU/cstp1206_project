@@ -51,22 +51,20 @@ block content
             | Upload
         a#showText.btn(href="#")
           img(src="https://img.icons8.com/ios/50/ffffff/text.png") 
-        div#textToAddDiv(style='display:none')
-          
+          span.ms-1.d-none.d-sm-inline Text
         br
       div
-        div#textToAddDiv
-          div 
-            input#textToAdd(width=10)
-            button#addText Add
-          div
-            span Font-family:
-            select#font-family
-              option(value='Times New Roman') Times New Roman
-              option(value='Arial') Arial
-              option(value='Verdana') Verdana
-              option(value='Impact') Impact
-              option(value='Tahoma') Tahoma
+        div#textToAddDiv(style='display:none')
+              input#textToAdd(width=10)
+              button#addText Add
+              br
+              span Font-family:
+              select#font-family
+                option(value='Times New Roman') Times New Roman
+                option(value='Arial') Arial
+                option(value='Verdana') Verdana
+                option(value='Impact') Impact
+                option(value='Tahoma') Tahoma
         #drawing-mode-options
           label(for='drawing-mode-selector') Mode:
           select#drawing-mode-selector
