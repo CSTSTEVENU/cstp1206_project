@@ -1,3 +1,5 @@
+//- Header & Footer created by James Kim
+//- Re-design by Gina Sun
 doctype html
 html(lang='en', dir='ltr', ng-app='kitchensink')
   head
@@ -14,6 +16,7 @@ html(lang='en', dir='ltr', ng-app='kitchensink')
 
 
   body
+  //- Header
     nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
       .container-fluid
         a.navbar-brand(href='/home') Scrapbook
@@ -28,11 +31,12 @@ html(lang='en', dir='ltr', ng-app='kitchensink')
             a.nav-item.nav-link(href='/contact') Contact
           .navbar-nav.ms-auto
             a.nav-item.nav-link(href='/login') Login
+   //- End Header
 
     block content
 
  
-    // footer
+    //- Footer
     footer.container-fluid.navbar-fixed-bottom
       p
         | Scrapbook is powered by
@@ -40,5 +44,5 @@ html(lang='en', dir='ltr', ng-app='kitchensink')
         |  / 
         span.contact-link
           a(href='/contact') Contact us
-    // End footer
+    //- End Footer
 
