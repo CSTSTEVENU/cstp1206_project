@@ -1,4 +1,5 @@
 //- Register page for new user creation created by Jessica Jing
+//- Re-design by Gina Sun
 extends layout
 
 head
@@ -8,6 +9,7 @@ head
     block style
         link(rel='stylesheet' href='/stylesheets/setting.css')
 body
+  //- Register page content
   block content
     script.
         function validateForm(){ return validatePassword(false);}
@@ -21,6 +23,7 @@ body
                 form#register(action='/register', method='post' onsubmit="return validatePassword()")
                   .mb-3
                     input(type="hidden",name="_method", value="PUT")
+                    //- Warning message for register page to advise user the email or password format is wrong
                     if message
                       p #{message}
                     p#message
