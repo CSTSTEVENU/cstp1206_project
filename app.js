@@ -68,7 +68,7 @@ app.get('/', checkAuthenticated, (req, res) => {
 
 function isAuthenticated(req){
   let userName = req.cookies.username
-  return userName !== undefined
+  return userName !== undefined && req.session.user !== undefined;
 }
 
 function checkAuthenticated(req, res, next){

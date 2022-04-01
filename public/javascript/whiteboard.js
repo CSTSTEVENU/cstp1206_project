@@ -241,6 +241,7 @@
     }
     
 
+
     // support change font
     document.getElementById('font-family').onchange = function() {
 
@@ -295,7 +296,7 @@
     }
     var addShape = (e) =>{
       const index = e.currentTarget.getAttribute("id").split('_');
-      fabric.loadSVGFromURL('https://fabricjs.com/assets/' + index[2] + ".svg", function(objects, options){
+      fabric.loadSVGFromURL('/image/' + index[2] + ".svg", function(objects, options){
         let loadedObject = fabric.util.groupSVGElements(objects, options);
         loadedObject.set({
             left: 100,
