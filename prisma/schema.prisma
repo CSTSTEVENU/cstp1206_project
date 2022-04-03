@@ -1,0 +1,38 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider          = "mysql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+model User {
+  id                Int      @id @default(autoincrement())
+  name          String
+  email String   @unique
+  password          String
+  folder            folder[]
+}
+
+model folder {
+  id         Int     @id @default(autoincrement())
+  folderName String  @map("folder_name")
+  owner      User?   @relation(fields: [user_id], references: [id])
+  user_id    Int
+  images     image[]
+  isDefault  Boolean? @map("is_default") @default(false)
+}
+
+model image {
+  id        Int     @id @default(autoincrement())
+  data      String  @map("image_data")
+  folder    folder? @relation(fields: [folder_id], references: [id])
+  folder_id Int?
+
+  @@map("images")
+}

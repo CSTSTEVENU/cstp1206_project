@@ -1,0 +1,97 @@
+/* icon reference from https://icons8.com */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+}
+
+/* left sidebar */
+.nav-item {
+    padding-left: 10px;
+}
+
+.nav-item a {
+    color: white;
+    text-decoration:none;
+    padding-left: 5px;
+}
+
+.nav-item a:hover {
+    color: white;
+    text-decoration:none;
+}
+
+.nav-item span {
+    padding-left: 5px;
+}
+
+/* Drawomg tool */
+#drawing-mode {
+    /* margin-bottom: 10px; */
+    vertical-align: top;
+}
+
+#drawing-mode-options {
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    /* background: #f5f2f0; */
+    padding: 10px;
+}
+
+.info {
+    display: inline-block;
+    width: 25px;
+    background: #ffc;
+}
+
+/* left sidebar: upload */
+.upload {
+    color: white;
+    position:relative;
+}
+
+.upload:hover {
+    color: white;
+}
+
+.upload img{
+    color: white;
+    position:absolute;
+    margin-left: -12px;
+    margin-top: -2px;
+    /* margin-right: 2px; */
+}
+
+.upload span {
+    padding-left: 22px;
+}
+
+/* text tool */
+#text.mode {
+    display: none;
+}
+
+
+
+/* 
+#bd-wrapper {
+    min-width: 1500px;
+} */
+
+/* White board*/
+#c {
+    border: 1px solid #aaa;
+    display: block;
+}
+
+
+/* Mobile view */
+@media (max-width: 1000px) { 
+    #showText{
+        padding-top: 25px;
+    }
+}

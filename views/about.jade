@@ -1,0 +1,36 @@
+//- About page created by Gina Sun using bootstrap and html 
+extends layout
+
+head
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  block style 
+    //- The page style which holds codes that we use in about page
+    link(rel='stylesheet' href='/stylesheets/about.css')
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css', rel='stylesheet')
+
+//- About content
+block content
+  section.about.container-fluid.py-5.bg-light
+    .container
+      //- left side content
+      .row
+        .col-md-5.text-md-dark
+          h3 Our Team / Team8
+          p
+            //- Each member informations
+            h5.about-name Steven Uhm / Front-end    
+            h6.description
+              | Main responsible for organizing meetings, basic architecture of the project and front-end (Home, Whiteboard) design. Provide written basic page structure and requirements at the initial stage.           
+            h5.about-name Jing Jin (Jessica) / Back-end          
+            h6.description
+              | Assist to design front-end page draft and provide suggestions in the early stage. Main responsible for back-end design, database management and overall function planning.
+            h5.about-name Jeimseu Kim (James) / QA analyst      
+            h6.description
+              | Assist in front end program testing and error correction. Also responsible for the creation of the front-end header and footer.          
+            h5.about-name Tze-Ching Sun (Gina) / Front-end     
+            h6.description
+              | Responsible for front-end sketch design and design changes. Design front-end pages (Dashboard, Contacts, About, etc.) and unify page layout and format.       
+    //- Right side image
+    .row
+      .col-md-6.bg-cover#bg

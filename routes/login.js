@@ -1,83 +1,33 @@
-var  express = require('express');
-var router = express.Router();
-
-var  bodyParser = require('body-parser')
-var  app=express();
-var mysql=require('mysql');
-app.set('view engine', 'jade'); 
-app.set('views', __dirname);
-app.use(bodyParser.urlencoded({extended: false}))
-app.use(bodyParser.json())
-
-
-//mysql
-// var connection = mysql.createConnection({
-//     host: "localhost",
-//     user: "root",
-//     password: "12345",
-//     database : 'movierecommend',
-//     port:'3306',
-// });
-// connection.connect();
-
-// //login_page
-// app.get('/login',function (req,res) {
-//     res.render('login');
-// })
-
-var mysql = require('mysql');
-var conn = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "12345",
-    insecureAuth : true
+const express = require('express');
+const router = express.Router();
+const { PrismaClient } = require( '@prisma/client');
+const prisma = new PrismaClient()
+const bcrypt = require('bcrypt')
+/*Login page, user input the email and password. Find email first in database and compare with password
+ the  in database. After correct, then user can login account and to go the dashboard.
+ Cookie save the user name in the browers.*/ 
+router.get('/', function(req,res){
+  res.render("login.jade", { title: 'Login' });
 });
-conn.connect((err) =>{
-    if(err){ 
-        throw err;
-    }
-    console.log("connected!");
-});
-
 //to login
-app.post('/login',function (req,res) {
-      var  name=req.body.username.trim();
-      var pwd=req.body.pwd.trim();
-console.log('username:'+name+'password:'+pwd);
+router.post('/',async function (req,res) {
+      const  email=req.body.email.trim(); 
+      const pwd=req.body.password.trim();
+      console.log(email);
+      console.log(pwd);
+console.log('username:'+email+' password:'+pwd);
 
-var selectSQL = "select * from user where username = '"+name+"' and password = '"+pwd+"'";
-connection.query(selectSQL,function (err,rs) {
-    if (err) throw  err;
-                if (rs.length==0){
-        res.render('error',{title:'WARNING',message:'Sorry, username: '+name+ ' not exit.'});
-        return;
-                        }
-    console.log(rs);
-    console.log('ok');
-    res.render('ok',{title:'Welcome User',message:name});
-})
-})
+const people = await prisma.user.findFirst({where: {email: email}} );
+console.log(people);
+const cq = await bcrypt.compare(pwd, people.password);
 
-//create account page
-app.get('/register',function (req,res) {
-    res.render('register',{title:'create account'});
-  })
-
-
-// create an account 
-app.post('/register',function (req,res) {
-    var  name=req.body.username.trim();
-    var  pwd=req.body.pwd.trim();
-    var  user={username:name,password:pwd};
-    connection.query('insert into user set ?',user,function (err,rs) {
-        if (err) throw  err;
-        console.log('ok');
-       res.render('ok',{title:'Welcome User',message:name});
-    })
-})
-
-// var  server=app.listen(3000,function () {
-//     console.log("login server start......");
-// })
-
+  if(!cq){
+    console.info("wrong");
+    res.render("login.jade", {message:"Password is wrong, please retry."});
+    return;
+  }
+  req.session.user = people;
+  res.cookie("username", people.name );
+  res.redirect('dashboard');
+});
 module.exports = router;

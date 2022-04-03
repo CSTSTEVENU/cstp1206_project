@@ -1,0 +1,72 @@
+/* icon reference from https://icons8.com */
+/* word font reference from https://fonts.googleapis.com */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fredoka&family=Vollkorn:wght@500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    width: 100%;
+}
+
+/* about page layout */
+.about {
+    height: 820px;
+    width: 100%;
+    position: fixed;
+}
+
+/* content: title */
+.col-md-5 h3{
+    font-weight: bold;
+}
+
+/* about info */
+.about-name {
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #34495E;
+}
+.description {
+    font-size: 15px;
+    color: #616A6B ;
+}
+
+/* Stacked background */
+.col-md-5{
+    z-index: 1;
+}
+
+/* Right side image */
+.col-md-6  {
+    position: absolute; 
+    top:0; 
+    bottom:0; 
+    right:0; 
+    background-image: url("/image/about_image.png");
+    height: 820px;
+}
+
+.bg-cover{
+    background-size: cover;
+    background-position: center center;
+}
+
+/* Mobile view */
+@media (min-width: 768px) { 
+    .text-md-dark{
+        color: #333;
+    }
+}
+
+@media (max-width: 1000px) { 
+    /*opacity the image*/
+    .col-md-6 {
+        opacity: .4;
+    }
+}

@@ -1,0 +1,55 @@
+/* Login, Register, Editprofile page of CSS */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* font-family: 'Fredoka', sans-serif; */
+    width: 100%;
+}
+
+/* login, register, edit profile form */
+section {
+    background-image: url("/image/mobile_background.png");
+    height: 820px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* padding-top: 40px; */
+    padding-bottom: 40px;
+    width: 100%;
+}
+
+/* Edit profile- user email */
+.fixed-email {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.user-email {
+    font-weight: 400;
+    font-size: 20px;
+    color: #1976D2;
+}
+
+/* Create account page link */
+.create-account {
+    font-size: 20px;
+}
+
+.create-account a{
+    color: #1565C0;
+}
+
+.create-account a:hover {
+    color:#00BCD4;
+}
+
+/* Mobile view */
+@media (min-width: 768px) { 
+    section {
+        background-image: url("/image/desktop_background.png");
+    }
+}
