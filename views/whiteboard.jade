@@ -1,81 +1,80 @@
-//- Created by Jessica Jing and Steven Uhm
+//- Whiteboard funcational created by Jessica Jing and page made by Steven Uhm
+//- Re-design by Gina Sun, using bootstrap and html
 extends layout
 block style 
-  //- link(rel='stylesheet' href='stylesheets/style.css')
   link(rel='stylesheet' href='stylesheets/whiteboard.css')
   script(src='javascript/fabric.min.js')
   script(src='javascript/fabric_history.js')
 
+//- Whiteboard function page
 block content
   #bd-wrapper(ng-controller='CanvasControls')
-    .main_content
-      div.wb_commands.bg-dark
-        ul.left-sidebar-item.nav.nav-pills.flex-column.align-items-center.align-items-sm-start
-          li.other-folder.nav-item
-            a#drawing-mode.btn(href="#")
-              img(src="https://img.icons8.com/ios-filled/50/ffffff/pen.png")
-              span.ms-1.d-none.d-sm-inline Drawing
-          li.other-folder.nav-item
-            a#save.btn(href="#")
-              img(src="https://img.icons8.com/ios/50/ffffff/save--v1.png")
-              span.ms-1.d-none.d-sm-inline Save
-          li.other-folder.nav-item
-            a#shape_button.btn(href="#")
-              img(src="https://img.icons8.com/external-wanicon-solid-wanicon/64/ffffff/external-shape-kindergarten-wanicon-solid-wanicon.png")
-              span.ms-1.d-none.d-sm-inline Shape
-          li.other-folder.nav-item  
-            a#clear-canvas.btn(href="#")
-              img(src="https://img.icons8.com/wired/64/ffffff/filled-trash.png")
-              span.ms-1.d-none.d-sm-inline Delete
-          li.other-folder.nav-item
-            a#undo.btn(href="#")
-              img(src="https://img.icons8.com/dotty/80/ffffff/undo.png") 
-              span.ms-1.d-none.d-sm-inline Previous
-          li.other-folder.nav-item
-            a#copy.btn(href="#")
-              img(src="https://img.icons8.com/ios/50/ffffff/new-by-copy--v1.png")
-              span.ms-1.d-none.d-sm-inline Copy
-          li.other-folder.nav-item
-            a#paste.btn(href="#")
-              img(src="https://img.icons8.com/ios/50/ffffff/paste.png")
-              span.ms-1.d-none.d-sm-inline Paste
-          //- li.other-folder.nav-item
-          //-   label.upload.btn.d-none.d-sm-inline(for="myImage") 
-          //-     img(src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/ffffff/external-photo-editorial-design-flatart-icons-outline-flatarticons.png")
-          //-     input(type="file" style="display:none" id="myImage" accept="image/png, image/gif, image/jpeg")
-          //-     | Upload
-          li.other-folder.nav-item
-            label.upload.btn(for="myImage") 
-              img(src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/ffffff/external-photo-editorial-design-flatart-icons-outline-flatarticons.png")
-              input(type="file" style="display:none" id="myImage" accept="image/png, image/gif, image/jpeg")
-              | Upload
-          li.other-folder.nav-item
-            a#showText.btn(href="#")
-              img(src="https://img.icons8.com/ios/50/ffffff/text.png") 
-              span.ms-1.d-none.d-sm-inline Text
-      div
-        div#addTextPart(style='display:none')
-              input#textToAdd(width=10)
-              button#addText Add
-              br
-              span Font-family:
-              select#font-family
-                option(value='Times New Roman') Times New Roman
-                option(value='Arial') Arial
-                option(value='Verdana') Verdana
-                option(value='Impact') Impact
-                option(value='Tahoma') Tahoma
+    .row.flex-nowrap
+      //- whiteboard tool (left sidebar)
+      .col-auto.col-md-3.col-xl-2.px-0.bg-dark
+        .d-flex.flex-column.align-items-center.align-items-sm-start.px-3.pt-2.min-vh-100
+          ul.nav.nav-pills.flex-column.mb-sm-auto.mb-0.align-items-center.align-items-sm-start
+            li.nav-item
+              a#drawing-mode.btn.align-middle.px-0(href='#')
+                img(src="https://img.icons8.com/ios-filled/30/ffffff/pen.png")                      
+                span.ms-1.d-none.d-sm-inline Drawing                  
+            li.nav-item
+              a#save.btn.px-0.align-middle(href='#')
+                img(src='https://img.icons8.com/windows/32/ffffff/save--v1.png')                           
+                span.ms-1.d-none.d-sm-inline Save            
+            li.nav-item
+              a#shape_button.btn.px-0.align-middle(href='#')
+                img(src='https://img.icons8.com/external-wanicon-solid-wanicon/30/ffffff/external-shape-kindergarten-wanicon-solid-wanicon.png')                          
+                span.ms-1.d-none.d-sm-inline Shape           
+            li.nav-item
+              a#clear-canvas.btn.px-0.align-middle(href='#')
+                img(src='https://img.icons8.com/ios-glyphs/30/ffffff/filled-trash.png')                          
+                span.ms-1.d-none.d-sm-inline Delete                    
+            li.nav-item
+              a#undo.btn.px-0.align-middle(href='#')
+                img(src='https://img.icons8.com/external-ios-line-2px-amoghdesign/30/ffffff/external-arrow-multimedia-line-30px-ios-line-2px-amoghdesign-8.png')                      
+                span.ms-1.d-none.d-sm-inline Previous           
+            li.nav-item
+              a#copy.btn.px-0.align-middle(href='#')
+                img(src='https://img.icons8.com/metro/30/ffffff/copy.png')                          
+                span.ms-1.d-none.d-sm-inline Copy               
+            li.nav-item
+              a#paste.btn.px-0.align-middle(href='#')
+                img(src='https://img.icons8.com/ios-filled/30/ffffff/paste.png')                          
+                span.ms-1.d-none.d-sm-inline Paste                
+            li.nav-item
+              label.upload.btn(for="myImage") 
+                img(src="https://img.icons8.com/external-xnimrodx-lineal-xnimrodx/30/ffffff/external-photo-photography-xnimrodx-lineal-xnimrodx.png")
+                input(type="file" style="display:none" id="myImage" accept="image/png, image/gif, image/jpeg")
+                span.ms-1.d-none.d-sm-inline Upload
+            li.nav-item
+              a#showText.btn.px-0.align-middle(href='#')
+                img(src='https://img.icons8.com/ios-glyphs/30/ffffff/text.png')                     
+                span.ms-1.d-none.d-sm-inline Text
+      //- Tool functions
+      .col.py-2
+        #addTextPart(style='display:none')
+          input#textToAdd(width=10)
+          button#addText Add
+          br
+          span Font-family:
+          select#font-family
+              option(value='Times New Roman') Times New Roman
+              option(value='Arial') Arial
+              option(value='Verdana') Verdana
+              option(value='Impact') Impact
+              option(value='Tahoma') Tahoma
         #drawing-mode-options
           label(for='drawing-mode-selector') Mode:
           select#drawing-mode-selector
-            option Pencil
-            option Circle
-            option Spray
-            option Pattern
-            option hline
-            option vline
-            option square
-            option diamond
+              option Pencil
+              option Circle
+              option Spray
+              option Pattern
+              option hline
+              option vline
+              option square
+              option diamond
           br
           label(for='drawing-line-width') Line width:
           span.info 30
@@ -95,12 +94,11 @@ block content
           span.info 0
           input#drawing-shadow-offset(type='range' value='0' min='0' max='50')
           br
-        div#shape_list(style='display:none')
+        #shape_list(style='display:none')
+        //- White board
+        canvas#c(width='1000px' height='800px')
 
-        
-      
-      div
-      canvas#c(width='1200' height='800' style='border:1px solid #aaa')
+  //- Control tool functions to work
   script.
     (function(){
     var mainScriptEl = document.getElementById('main');

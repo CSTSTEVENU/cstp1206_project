@@ -1,21 +1,49 @@
-.main_content {
-    display: flex;
-    flex-direction: row;
+/* icon reference from https://icons8.com */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 1px solid red; */
 }
 
-.wb_commands{
+/* .main_content {
+    display: flex;
+    flex-direction: row;
+} */
+
+/* .wb_commands{
     display: flex;
     flex-direction: column;
     padding-top: 15px;
-    /* background-color: #0a2558; */
-}
+    background-color: #0a2558;
+} */
 
-.wb_commands img{
+/* .wb_commands img{
     width: 20px;
     height: 20px;
 }
 .wb_commands span {
     color: white;
+    padding-left: 5px;
+} */
+
+.nav-item {
+    padding-left: 10px;
+}
+
+.nav-item a {
+    color: white;
+    text-decoration:none;
+    padding-left: 5px;
+}
+
+.nav-item a:hover {
+    color: white;
+    text-decoration:none;
+}
+
+.nav-item span {
     padding-left: 5px;
 }
 
@@ -29,12 +57,13 @@
     vertical-align: top;
     margin-bottom: 10px;
     margin-top: 10px;
-    background: #f5f2f0;
+    /* background: #f5f2f0; */
     padding: 10px;
 }
 
 .upload {
     color: white;
+    position:relative;
 }
 
 .upload:hover {
@@ -43,16 +72,24 @@
 
 .upload img{
     color: white;
-    margin-right: 8px;
+    position:absolute;
+    margin-left: -12px;
+    margin-top: -2px;
+    /* margin-right: 2px; */
+}
+
+.upload span {
+    padding-left: 22px;
 }
 
 #text.mode {
     display: none;
 }
 
-label {
-    display: inline-block; width: 130px;
-}
+/* label {
+    display: inline-block; 
+    width: 130px;
+} */
 
 /* label#upload{
     width:
@@ -63,7 +100,18 @@ label {
     width: 25px;
     background: #ffc;
 }
-
+/* 
 #bd-wrapper {
     min-width: 1500px;
+} */
+
+#c {
+    border: 1px solid #aaa;
+    display: block;
+}
+
+@media (max-width: 1000px) { 
+    #showText{
+        padding-top: 25px;
+    }
 }

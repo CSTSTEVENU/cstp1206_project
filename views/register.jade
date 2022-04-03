@@ -1,11 +1,10 @@
-//- Register page for new user creation created by Jessica Jing
-//- Re-design by Gina Sun
+//- Register page functional for new user creation created by Jessica Jing
+//- Re-design by Gina Sun, using bootstrap and html
 extends layout
 
 head
     meta(charset='utf-8')
     meta(name='viewport' content='width=device-width, initial-scale=1')
-    title Register
     block style
         link(rel='stylesheet' href='/stylesheets/setting.css')
 body
@@ -32,7 +31,7 @@ body
                     input.typeEmailX-2.form-control.form-control-sm(id="username" name="username" type='text' placeholder='Name')              
                    .mb-3
                     label.form-label(for='typePasswordX-2') Email                            
-                    input.typePasswordX-2.form-control.form-control-sm(id="email" name="email" type='email')
+                    input.typePasswordX-2.form-control.form-control-sm(id="email" name="email" type='email' placeholder='xxxxx@gmail.com')
                   .mb-3
                     label.form-label(for='typePasswordX-2') Password                             
                     input.typePasswordX-2.form-control.form-control-sm(id="pwd" name="pwd" type='password')

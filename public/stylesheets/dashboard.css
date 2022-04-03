@@ -10,21 +10,26 @@ body {
     width: 100%;
 }
 
+/* left sidebar */
 .left-sidebar-area {
     min-height: 93vh;
 }
+
 .left-sidebar-item li{
     padding-top: 25px;
 }
+
 .username {
     padding-left: 15px;
 }
+
 .add-folder {
  outline: none;
  text-decoration:none;
  padding-left: 15px;
 
 }
+
 .links_name{
     color: #fff;
     font-size: 15px;
@@ -59,32 +64,34 @@ body {
     color: white;
 }
 
-
-.design {
+/* create new design */
+.new-design {
     padding-top: 50px;
     padding-bottom: 50px;
 }
 
-.design a {
+.new-design a {
     text-decoration:none;
     color: #3498DB;
     
 }
 
-.design a:hover {
+.new-design a:hover {
     color: #85C1E9 ;
     
 }
 
-.design img {
+.new-design img {
  width: 60x;
  height: 60px;
 }
 
+/* user own design */
 .image-design {
     height: 480px;
 }
 
+/* mobile view */
 @media (max-width: 768px) { 
     .logout {
         margin-top: 650px;

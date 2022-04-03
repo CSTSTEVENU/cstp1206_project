@@ -1,3 +1,5 @@
+/* icon reference from https://icons8.com */
+/* word font reference from https://fonts.googleapis.com */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fredoka&family=Vollkorn:wght@500&display=swap');
 
 *{
@@ -11,14 +13,16 @@ body {
     width: 100%;
 }
 
-.col-md-5 h3{
-    font-weight: bold;
-}
-
+/* about page layout */
 .about {
     height: 820px;
     width: 100%;
     position: fixed;
+}
+
+/* content: title */
+.col-md-5 h3{
+    font-weight: bold;
 }
 
 .about-name {
@@ -30,7 +34,6 @@ body {
 .description {
     font-size: 15px;
     color: #616A6B ;
-    /* font-weight: 50px; */
 }
 
 .col-md-5{
