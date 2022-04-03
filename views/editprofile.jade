@@ -5,31 +5,36 @@ extends layout
 head
   meta(charset='utf-8')
   meta(name='viewport' content='width=device-width, initial-scale=1')
-  title Edit Profile
   block style
+    //- The page style which holds codes that we use in edit profile page
     link(rel='stylesheet', href='/stylesheets/setting.css')
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css', rel='stylesheet')
 
-body
-  block content
-    script.
-        function validateForm(){ return validatePassword(false);}
-    section
-      .container.py-5
-        .row.d-flex.justify-content-center.align-items-center.h-80
-          .col-11.col-md-6.col-lg-6.col-xl-5
-            .card.shadow-2-strong(style='border-radius: 1rem;')
-              .card-body.p-5.text-center(action='/editprofile', method='post' onsubmit="return validateForm()")
-                h3.mb-5 Edit Profile                       
-                .form-outline.mb-4
-                  label.form-label(for='typeEmailX-2') Email                          
-                  div #{user.email}                    
-                .form-outline.mb-4
-                  label.form-label(for='typeEmailX-2') Change Name                             
-                  input#typeEmailX-2.form-control.form-control-sm(name="username", type='text' placeholder='Name')                         
-                .form-outline.mb-4
-                  label.form-label(for='typePasswordX-2') Change Password                            
-                  input#typePasswordX-2.form-control.form-control-sm(name="pwd", type='password')                           
-                .form-outline.mb-4
-                  label.form-label(for='typeEmailX-2') Confirm Password                              
-                  input#typeEmailX-2.form-control.form-control-sm(name="cmpwd", type='password')                           
+block content
+  //- The entire Editprofile running equation
+  script.
+      function validateForm(){ return validatePassword(false);}
+  //- Edit profile form
+  section
+    .container.py-5
+      .row.d-flex.justify-content-center.align-items-center.h-80
+        .col-11.col-md-6.col-lg-6.col-xl-5
+          .card.shadow-2-strong(style='border-radius: 1rem;')
+            //- Profile info
+            .card-body.p-5(action='/editprofile', method='post' onsubmit="return validateForm()")
+              h3.mb-5.text-center Edit Profile                       
+              .form-outline.mb-4.text-center
+                label.fixed-email.form-label(for='typeEmailX-2') Email  
+                //- Display the user email address which registered before                       
+                div.user-email #{user.email}                   
+              .form-outline.mb-3
+                label.form-label(for='typeEmailX-2') Change Name                             
+                input#typeEmailX-2.form-control.form-control-sm(name="username", type='text')                         
+              .form-outline.mb-3
+                label.form-label(for='typePasswordX-2') Change Password                            
+                input#typePasswordX-2.form-control.form-control-sm(name="pwd", type='password')                           
+              .form-outline.mb-3
+                label.form-label(for='typeEmailX-2') Confirm Password                              
+                input#typeEmailX-2.form-control.form-control-sm(name="cmpwd", type='password')
+              .form-outline.pt-4.text-center                     
                 button.btn.btn-primary.btn-lg.btn-block(type='submit') Submit
