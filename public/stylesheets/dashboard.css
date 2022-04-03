@@ -1,3 +1,4 @@
+/* icon reference from https://icons8.com */
 *{
     margin: 0;
     padding: 0;
@@ -50,8 +51,13 @@ body {
 }
 
 .logout {
-    margin-top: 750px;
-    position:fixed;
+    /* margin-top: 600px;
+    position:fixed; */
+    /* margin-top: 50px; */
+    position: fixed;
+    top: 650px;
+    left: 20px;
+    right: 0;
 }
 
 .logout a {
@@ -86,15 +92,27 @@ body {
  height: 60px;
 }
 
-/* user own design */
+/* User own image view */
 .image-design {
     height: 480px;
+}
+
+/*Hide and display add folder function*/
+#popup {
+    display: none;
+}
+
+#main_content {
+    display: flex;
 }
 
 /* mobile view */
 @media (max-width: 768px) { 
     .logout {
-        margin-top: 650px;
-        /* display: flex; */
+        /* margin-top: 650px; */
+        position:fixed;
+        top: 700px;
+        left: -335px;
+        right: 0;
     }
 }

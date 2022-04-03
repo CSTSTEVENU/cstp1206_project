@@ -1,3 +1,4 @@
+/* Login, Register, Editprofile page of CSS */
 *{
     margin: 0;
     padding: 0;
@@ -21,7 +22,32 @@ section {
     width: 100%;
 }
 
-/* mobile view */
+/* Edit profile- user email */
+.fixed-email {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.user-email {
+    font-weight: 400;
+    font-size: 20px;
+    color: #1976D2;
+}
+
+/* Create account page link */
+.create-account {
+    font-size: 20px;
+}
+
+.create-account a{
+    color: #1565C0;
+}
+
+.create-account a:hover {
+    color:#00BCD4;
+}
+
+/* Mobile view */
 @media (min-width: 768px) { 
     section {
         background-image: url("/image/desktop_background.png");

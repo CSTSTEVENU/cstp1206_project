@@ -25,6 +25,7 @@ body {
     font-weight: bold;
 }
 
+/* about info */
 .about-name {
     font-size: 20px;
     padding-top: 10px;
@@ -36,10 +37,12 @@ body {
     color: #616A6B ;
 }
 
+/* Stacked background */
 .col-md-5{
     z-index: 1;
 }
 
+/* Right side image */
 .col-md-6  {
     position: absolute; 
     top:0; 
@@ -54,7 +57,7 @@ body {
     background-position: center center;
 }
 
-
+/* Mobile view */
 @media (min-width: 768px) { 
     .text-md-dark{
         color: #333;

@@ -1,3 +1,4 @@
+/* Home page of CSS */
 /* word font reference from https://fonts.googleapis.com */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fredoka&family=Vollkorn:wght@500&display=swap');
 
@@ -29,6 +30,7 @@ body {
     z-index: 1;
     color: #424242;
     font-weight: 500;
+    /* -webkit-text-stroke: 1px; */
 }
 
 .col-md-3 h1{
@@ -93,7 +95,6 @@ body {
     background-position: center center;
 }
 
-/* mobile view */
 /* Text and background changes as the page zooms */ 
 @media (min-width: 768px) { 
     .text-md-dark{

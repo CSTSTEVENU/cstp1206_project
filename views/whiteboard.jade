@@ -1,8 +1,11 @@
 //- Whiteboard funcational created by Jessica Jing and page made by Steven Uhm
 //- Re-design by Gina Sun, using bootstrap and html
 extends layout
+
 block style 
+  //- The page style which holds codes that we use in whiteboard page
   link(rel='stylesheet' href='stylesheets/whiteboard.css')
+  //- left sidebar Tool function link by javascript file
   script(src='javascript/fabric.min.js')
   script(src='javascript/fabric_history.js')
 
@@ -53,6 +56,7 @@ block content
                 span.ms-1.d-none.d-sm-inline Text
       //- Tool functions
       .col.py-2
+        //- Text box tool
         #addTextPart(style='display:none')
           input#textToAdd(width=10)
           button#addText Add
@@ -64,6 +68,7 @@ block content
               option(value='Verdana') Verdana
               option(value='Impact') Impact
               option(value='Tahoma') Tahoma
+        //- Drawing tool
         #drawing-mode-options
           label(for='drawing-mode-selector') Mode:
           select#drawing-mode-selector
@@ -94,6 +99,7 @@ block content
           span.info 0
           input#drawing-shadow-offset(type='range' value='0' min='0' max='50')
           br
+        //- Shape tool
         #shape_list(style='display:none')
         //- White board
         canvas#c(width='1000px' height='800px')

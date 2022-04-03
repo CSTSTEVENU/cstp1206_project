@@ -5,25 +5,27 @@ head
   block style
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
+    //- The page style which holds codes that we use in home page
     link(rel='stylesheet', href='/stylesheets/main.css')
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css', rel='stylesheet')    
 
-body
-  //- home page conent
-  block content
-    section.home.py-5.bg-light.text-white
-      .container-fluid
-        .home-content.row
-          .col-md-3.text-md-dark(style='z-index: 1;')
-            h1 Scrapbook                  
-            h3 Team 8           
-            p
-              | An online scrapbook application to make your creations in a digital way! 
-              br
-              | Our application is here to transition your creative process in making your memories, your art, 
-              | and your keep sakes in a digital format! Through our website you can create scrapbook pages any way that you want 
-              | with the ease and resources available on the internet!
-           
-            .button
-              a(href='/login') Learn More  
+//- home page conent
+block content
+  section.home.py-5.bg-light.text-white
+    .container-fluid
+      .home-content.row
+        .col-md-3.text-md-dark(style='z-index: 1;')
+          h1 Scrapbook                  
+          h3 Team 8           
+          p
+            | An online scrapbook application to make your creations in a digital way! 
+            br
+            | Our application is here to transition your creative process in making your memories, your art, 
+            | and your keep sakes in a digital format! Through our website you can create scrapbook pages any way that you want 
+            | with the ease and resources available on the internet!
+          //- click button will link to login page
+          .button
+            a(href='/login') Learn More
+      //- right side image
       .row
         .col-md-9   
