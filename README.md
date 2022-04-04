@@ -41,21 +41,21 @@ An online scrapbook application to make your creations in a digital way!  Our ap
 
 ## Screenshots
 
-![Home Page](/public/image/Homepage_screenshot.png "Home Page")
+![Home Page](/image/Homepage_screenshot.png "Home Page")
 
-![Register Page](/public/image/Register_screenshot.png "Register Page")
+![Register Page](/image/Register_screenshot.png "Register Page")
 
-![Login Page](/public/image/Login_screenshot.png "Login Page")
+![Login Page](/image/Login_screenshot.png "Login Page")
 
-![Dashboard Page](/public/image/Dashboard_screenshot.png "Dashboard Page")
+![Dashboard Page](/image/Dashboard_screenshot.png "Dashboard Page")
 
-![Create Design Page](/public/image/Create_Design_screenshot.png "Create Design Page")
+![Create Design Page](/image/Create_Design_screenshot.png "Create Design Page")
 
-![Editprofile Page](/public/image/Editprofile_screenshot.png "Editprofile Page")
+![Editprofile Page](/image/Editprofile_screenshot.png "Editprofile Page")
 
-![About Page](/public/image/About_screenshot.png "About Page")
+![About Page](/image/About_screenshot.png "About Page")
 
-![Contact Page](/public/image/Contact_screenshot.png "Contact Page")
+![Contact Page](/image/Contact_screenshot.png "Contact Page")
 
 ## Available Commands
 
