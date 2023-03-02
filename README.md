@@ -120,9 +120,4 @@ Used to upload local repository content to a remote repository. Pushing is how y
 - [ ] Image be able to shared, organized and deleted, community
 - [ ] Canvas can change with screen
 
-## Author
-
-**James Kim**
-
-- [Profile](https://github.com/JamesKim4913 "James Kim")
 
